@@ -1,5 +1,6 @@
-import React from 'react'
-
+import { Box } from '@mui/material';
+import React from 'react';
+import OverText from './OverText';
 
 export default function HomeBanner() {
   const obj={
@@ -11,7 +12,8 @@ export default function HomeBanner() {
     marginLeft: "auto"
   }
   return (
-    <div className="homeBanner" style={obj}>  
-    </div>
+    <Box className="homeBanner" style={obj} sx={{marginTop:{xs:"0px",md:"-84px"}}}>
+     <OverText />
+    </Box>
   )
 }

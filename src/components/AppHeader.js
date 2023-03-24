@@ -34,7 +34,7 @@ export default function AppHeader(props: Props) {
   };
 
   const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
+    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }} mt={4}>
       <Divider />
       <List>
         {navItems.map((item) => (
@@ -45,22 +45,23 @@ export default function AppHeader(props: Props) {
           </ListItem>
         ))}
       </List>
+      <Divider />
     </Box>
   );
 
   const container = window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box sx={{ display: 'flex',justifyContent:"center"}}>
+    <Box sx={{ display: 'flex',justifyContent:"center"}} className="appBar">
       <CssBaseline />
-      <AppBar component="nav" sx={{ maxWidth:"1200px" ,right:"auto",backgroundColor:"transparent",boxShadow:"none"}}>
+      <AppBar component="nav" sx={{ maxWidth:"1200px" ,right:"auto",boxShadow:"none",backgroundColor:{xs:"black",md:"transparent"},position:"sticky"}} >
         <Toolbar style={{display:"flex",justifyContent:"space-between",height:"84px",padding:"0px"}}>
           <Box style={{marginTop:"10px"}}>
-            <img src={logo} style={{width:"192px",height:"43px"}} alt="logo"/>
+            <img src={logo} style={{width:"192px",height:"43px"}} alt="logo" className='siteLogo'/>
           </Box>
-          <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+          <Box sx={{ display: { xs: 'none', md: 'block' } }} className="menuList">
             {navItems.map((item) => (
-              <Button key={item} sx={{ color: '#fff' ,marginLeft:"34px",paddingRight:"0px",fontFamily:"poppins",fontWeight:"500",fontSize:"14px",minWidth:"0px"}}>
+              <Button key={item} className="menuBtn" sx={{ color: '#fff' ,marginLeft:"34px",paddingRight:"0px",fontFamily:"poppins",fontWeight:"500",fontSize:"14px",minWidth:"0px"}}>
                 {item}
               </Button>
             ))}
@@ -70,7 +71,7 @@ export default function AppHeader(props: Props) {
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: 'none' } }}
+            sx={{ mr: 2, display: { md: 'none' } }}
           >
             <MenuIcon />
           </IconButton>
@@ -86,7 +87,7 @@ export default function AppHeader(props: Props) {
             keepMounted: true, // Better open performance on mobile.
           }}
           sx={{
-            display: { xs: 'block', sm: 'none' },
+            display: { xs: 'block', md: 'none' },
             '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
           }}
         >
