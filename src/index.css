@@ -1,16 +1,28 @@
-.sectionWidth{
-  max-width: 1200px;
+img{
+  width:100%;
+  height:100%;
+}
+.homeBanner{
+  background: url('./images/banner1.jpg');
+}
+
+.pageWidth{
+  max-width: 1920px;
   margin: auto;
 }
+
 .mainHeading{
   font-size: 35px !important;
   font-family: poppins !important;
   font-weight: 700 !important;
 }
-
-.homeBanner{
-  background: url('./images/banner1.jpg');
+@media screen and (max-width:900px) {
+  .mainHeading{
+    font-size: 28px !important;
+  }
 }
+
+
 .appBar .MuiBox-root.css-19kzrtu{
   display: none;
 }
@@ -23,11 +35,7 @@
 .menuList button:first-child{
 color:#fcb040;
 }
-@media screen and (max-width:900px) {
-  .mainHeading{
-    font-size: 28px !important;
-  }
-}
+
 @media screen and (max-width:1024px) {
   .siteLogo{
     margin-left: 20px;

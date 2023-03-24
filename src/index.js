@@ -5,6 +5,7 @@ import reportWebVitals from './reportWebVitals';
 import HomeBanner from './components/HomeBanner';
 import AppHeader from './components/AppHeader';
 import SingleHeading from './components/SingleHeading';
+import AgencyServices from './components/AgencyServices';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -13,6 +14,8 @@ root.render(
     <AppHeader />
     <HomeBanner />
     <SingleHeading title=" Digital Marketing Agency Services"/>
+    <AgencyServices />
+    <SingleHeading title=" What we’ve done"/>
   </React.StrictMode>
 );
 
