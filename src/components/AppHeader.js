@@ -2,7 +2,6 @@ import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
-import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
 import List from '@mui/material/List';
@@ -35,7 +34,6 @@ export default function AppHeader(props: Props) {
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }} mt={4}>
-      <Divider />
       <List>
         {navItems.map((item) => (
           <ListItem key={item} disablePadding>
@@ -45,7 +43,6 @@ export default function AppHeader(props: Props) {
           </ListItem>
         ))}
       </List>
-      <Divider />
     </Box>
   );
 
