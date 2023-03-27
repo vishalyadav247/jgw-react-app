@@ -6,6 +6,8 @@ import HomeBanner from './components/HomeBanner';
 import AppHeader from './components/AppHeader';
 import SingleHeading from './components/SingleHeading';
 import AgencyServices from './components/AgencyServices';
+import WeDo from './components/WeDo';
+import WeAre from './components/WeAre';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -16,6 +18,11 @@ root.render(
     <SingleHeading title=" Digital Marketing Agency Services"/>
     <AgencyServices />
     <SingleHeading title=" What we’ve done"/>
+    <WeDo />
+    <SingleHeading title=" Who We Are"/>
+    <WeAre />
+    <SingleHeading title=" Our Recent Blogs"/>
+
   </React.StrictMode>
 );
 

@@ -7,12 +7,10 @@ export default function HomeBanner() {
     maxWidth: "1920px",
     height:" 505px",
     backgroundPosition: "center center",
-    backgroundSize: "cover",
-    marginRight: "auto",
-    marginLeft: "auto"
+    backgroundSize: "cover"
   }
   return (
-    <Box className="homeBanner" style={obj} sx={{marginTop:{xs:"0px",md:"-84px"}}}>
+    <Box className="homeBanner" style={obj}>
      <OverText />
     </Box>
   )

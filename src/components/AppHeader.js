@@ -11,7 +11,9 @@ import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
-import logo from '../images/logo.png'
+import logo from '../images/logo.png';
+import HeaderAnimation from './HeaderAnimation';
+
 
 interface Props {
   /**
@@ -25,12 +27,17 @@ const drawerWidth = "80%";
 const navItems = ['Home', 'Who We Are', 'SEO', 'UX Design', 'Shopify', 'Thinking', 'Hire Us!'];
 
 export default function AppHeader(props: Props) {
+
+
+
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
   };
+
+
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }} mt={4}>
@@ -49,12 +56,12 @@ export default function AppHeader(props: Props) {
   const container = window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box sx={{ display: 'flex',justifyContent:"center"}} className="appBar">
+    <Box sx={{ display: 'flex',justifyContent:"center",height:"84px",width:"100%",position:"fixed",zIndex:"99",top:"-84px",backgroundColor:"#000000"}} className="appBar" id="appHeader">
       <CssBaseline />
-      <AppBar component="nav" sx={{ maxWidth:"1200px" ,right:"auto",boxShadow:"none",backgroundColor:{xs:"black",md:"transparent"},position:"sticky"}} >
+      <AppBar component="nav" sx={{ maxWidth:"1200px",right:"auto",boxShadow:"none",backgroundColor:{xs:"black",md:"transparent"},position:"fixed",top:"0px",zIndex:"10"}} >
         <Toolbar style={{display:"flex",justifyContent:"space-between",height:"84px",padding:"0px"}}>
           <Box style={{marginTop:"10px"}}>
-            <img src={logo} style={{width:"192px",height:"43px"}} alt="logo" className='siteLogo'/>
+            <img src={logo} style={{width:"192px",height:"43px"}} alt="logo" className='siteLogo'id="logoImg"/>
           </Box>
           <Box sx={{ display: { xs: 'none', md: 'block' } }} className="menuList">
             {navItems.map((item) => (
@@ -73,6 +80,7 @@ export default function AppHeader(props: Props) {
             <MenuIcon />
           </IconButton>
         </Toolbar>
+        
       </AppBar>
       <Box component="nav">
         <Drawer
@@ -94,6 +102,7 @@ export default function AppHeader(props: Props) {
       <Box component="main" sx={{ p: 3 }}>
         <Toolbar />
       </Box>
+      <HeaderAnimation />
     </Box>
   );
 }
