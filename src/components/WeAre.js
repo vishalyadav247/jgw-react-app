@@ -7,11 +7,11 @@ import { fontFamily } from '@mui/system';
 export default function WeAre() {
     const weAreWrapper = {
         display: 'grid',
-        gridTemplateColumns: "1fr 1fr",
+        gridTemplateColumns: {xs:"1fr",md:"1fr 1fr"},
         backgroundColor: "#f8f8f8"
     }
     const weAreContent={
-        padding:{xs:"70px 80px 70px 125px"},
+        padding:{xs:"20px",sm:"70px 80px 70px 125px",md:"60px 40px 70px 75px",lg:"70px 80px 70px 125px"},
         lineHeight:"1.8em",
         fontFamily:"open sans",
         fontSize:"17px",
@@ -19,18 +19,19 @@ export default function WeAre() {
         fontWeight:"300"
     }
     const leftContentWrapper={
-        width:'75%',
+        width:{xs:'100%',md:'75%'},
         backgroundColor:"rgb(0, 67, 139)",
-        padding:"0px 40px 30px 50px",
-        marginTop:"-7px"
+        padding:{xs:"0px 15px 30px 20px",md:"0px 40px 30px 50px"},
+        marginTop:{xs:"-25px",md:"-7px"},
+        marginBottom:{xs:"30px"}
     }
     const leftContent={
-        fontSize:"22px",
+        fontSize:{xs:"18px",sm:"16px",md:"22px"},
         lineHeight:"1.4em",
         fontFamily:"poppins",
         fontWeight:"700",
         color:"#ffffff",
-        marginTop:"-20px"
+        marginTop:"-20px",
     }
     return (
         <Box className="weAreWrapper" sx={weAreWrapper}>

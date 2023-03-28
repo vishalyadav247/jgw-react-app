@@ -33,6 +33,11 @@ font-family: pop;
   top: -45px;
   box-shadow: 5px 5px 2px 0px rgba(0,0,0,.25);
 }
+@media screen and (max-width:900px){
+  .leftContent::before{
+    top:-28px;
+  }
+}
 .weAreLeft img{
   height:auto !important;
 }
