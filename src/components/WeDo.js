@@ -7,11 +7,11 @@ export default function WeDo() {
         color:"#000000",
         textAlign:"center",
         fontSize:{xs: "20px", md: "26px"},
-        fontFamily:"poppins",
         fontWeight:"700",
-        width:{xs: "100%", lg: "250px",xl:"100%"},
+        width:{xs: "100%", lg: "250px",xl:"95%"},
         height:{xs: "50px",sm:"30px", lg: "75px"},
-        margin:"auto"
+        margin:"auto",
+        fontFamily:"poppins"
     }
     return (
         <>

@@ -8,6 +8,7 @@ import SingleHeading from './components/SingleHeading';
 import AgencyServices from './components/AgencyServices';
 import WeDo from './components/WeDo';
 import WeAre from './components/WeAre';
+import OurBlogs from './components/OurBlogs';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -22,6 +23,7 @@ root.render(
     <SingleHeading title=" Who We Are"/>
     <WeAre />
     <SingleHeading title=" Our Recent Blogs"/>
+    <OurBlogs />
 
   </React.StrictMode>
 );
