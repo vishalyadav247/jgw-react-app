@@ -9,6 +9,7 @@ import AgencyServices from './components/AgencyServices';
 import WeDo from './components/WeDo';
 import WeAre from './components/WeAre';
 import OurBlogs from './components/OurBlogs';
+import AppFooter from './components/AppFooter';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -24,7 +25,7 @@ root.render(
     <WeAre />
     <SingleHeading title=" Our Recent Blogs"/>
     <OurBlogs />
-
+    <AppFooter />
   </React.StrictMode>
 );
 
