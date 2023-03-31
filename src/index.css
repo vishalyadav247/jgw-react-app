@@ -1,3 +1,6 @@
+.blogContent span{
+  color:#ffffffa5
+}
 body{
   scroll-behavior: smooth;
 }
@@ -20,11 +23,11 @@ img{
 }
 
 .leftContent::before{
-  content: "' '";
+  content: "''";
 text-align: center;
-font-family: pop;
-  font-size: 72px;
+  font-size: 95px;
   color: #ffffff;
+  font-weight: 300;
   width: 85px;
   height: 85px;
   border-radius: 50%;

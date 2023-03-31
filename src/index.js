@@ -17,16 +17,17 @@ root.render(
   <React.StrictMode>
     <AppHeader />
     <HomeBanner />
-    <SingleHeading title=" Digital Marketing Agency Services"/>
+    <SingleHeading title=" Digital Marketing Agency Services" />
     <AgencyServices />
-    <SingleHeading title=" What we’ve done"/>
+    <SingleHeading title=" What we’ve done" />
     <WeDo />
-    <SingleHeading title=" Who We Are"/>
+    <SingleHeading title=" Who We Are" />
     <WeAre />
-    <SingleHeading title=" Our Recent Blogs"/>
+    <SingleHeading title=" Our Recent Blogs" />
     <OurBlogs />
     <AppFooter />
   </React.StrictMode>
 );
 
 reportWebVitals();
+
