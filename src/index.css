@@ -1,6 +1,8 @@
 body{
   scroll-behavior: smooth;
+  font-family: poppins;
 }
+
 .pageWidth{
   max-width: 1920px;
   margin: auto;

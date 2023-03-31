@@ -17,13 +17,13 @@ root.render(
   <React.StrictMode>
     <AppHeader />
     <HomeBanner />
-    <SingleHeading title=" Digital Marketing Agency Services"/>
+    <SingleHeading title=" Digital Marketing Agency Services" bgText='Explore'/>
     <AgencyServices />
-    <SingleHeading title=" What we’ve done"/>
+    <SingleHeading title=" What we’ve done" bgText='Look'/>
     <WeDo />
-    <SingleHeading title=" Who We Are"/>
+    <SingleHeading title=" Who We Are" bgText='Know'/>
     <WeAre />
-    <SingleHeading title=" Our Recent Blogs"/>
+    <SingleHeading title=" Our Recent Blogs" bgText='Read'/>
     <OurBlogs />
     <AppFooter />
   </React.StrictMode>
