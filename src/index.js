@@ -17,6 +17,7 @@ root.render(
   <React.StrictMode>
     <AppHeader />
     <HomeBanner />
+<<<<<<< HEAD
     <SingleHeading title=" Digital Marketing Agency Services" bgText='Explore'/>
     <AgencyServices />
     <SingleHeading title=" What we’ve done" bgText='Look'/>
@@ -24,9 +25,19 @@ root.render(
     <SingleHeading title=" Who We Are" bgText='Know'/>
     <WeAre />
     <SingleHeading title=" Our Recent Blogs" bgText='Read'/>
+=======
+    <SingleHeading title=" Digital Marketing Agency Services" />
+    <AgencyServices />
+    <SingleHeading title=" What we’ve done" />
+    <WeDo />
+    <SingleHeading title=" Who We Are" />
+    <WeAre />
+    <SingleHeading title=" Our Recent Blogs" />
+>>>>>>> d116b2307a86ab2eefdf41ad7b3f8002db41994e
     <OurBlogs />
     <AppFooter />
   </React.StrictMode>
 );
 
 reportWebVitals();
+

@@ -28,8 +28,8 @@ export default function OurBlogs() {
         overflow:{xs:"visible",md:"hidden",lg:"visible"}
     }
     const MiddleSpan = {
-        borderLeft: "1px solid #ffffff",
-        borderRight: "1px solid #ffffff",
+        borderLeft: "1px solid #ffffffa5",
+        borderRight: "1px solid #ffffffa5",
         padding: "0px 5px",
         margin: "0px 5px"
     }
