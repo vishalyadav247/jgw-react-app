@@ -9,7 +9,7 @@ export default function SingleHeading(props) {
       top:'50%',
       translate:'-50% -50%',
       color:'#f6f5f5',
-      fontSize:'7em',
+      fontSize:{xs:'4em',sm:'7em'},
       zIndex:'-1',
       fontWeight:'700',
       fontFamily:'poppins',

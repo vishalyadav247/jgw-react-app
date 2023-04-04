@@ -12,9 +12,11 @@ export default function AppFooter() {
     const [fcHeight,setFcHeight]= useState({
         height1:'0px',
         height2:'0px',
-        height3:'0px',
+        maxheight3:'0px',
     });
-    const [accordianIcon,setAccordianIcon]= useState('+')
+    const [accordianIcon,setAccordianIcon]= useState('+');
+    const [accordianIcon2,setAccordianIcon2]= useState('+');
+    const [accordianIcon3,setAccordianIcon3]= useState('+')
 
     const fcShow1=()=>{
         setFcHeight((obj)=>{
@@ -28,7 +30,7 @@ export default function AppFooter() {
     }
     const fcShow3=()=>{
         setFcHeight((obj)=>{
-            return ({...obj,height3:'150px'})
+            return ({...obj,maxheight3:'1000px'})
         })
     }
     const fcHide1=()=>{
@@ -38,12 +40,12 @@ export default function AppFooter() {
     }
     const fcHide2=()=>{
         setFcHeight((obj)=>{
-            return ({...obj,height1:'0px'})
+            return ({...obj,height2:'0px'})
         })
     }
     const fcHide3=()=>{
         setFcHeight((obj)=>{
-            return ({...obj,height1:'0px'})
+            return ({...obj,height3:'0px'})
         })
     }
     const fcShowHide1=()=>{
@@ -56,21 +58,21 @@ export default function AppFooter() {
         }
     }
     const fcShowHide2=()=>{
-        if(accordianIcon === '+'){
+        if(accordianIcon2 === '+'){
             fcShow2()
-            setAccordianIcon('-')
+            setAccordianIcon2('-')
         }else{
             fcHide2()
-            setAccordianIcon('+')
+            setAccordianIcon2('+')
         }
     }
     const fcShowHide3=()=>{
-        if(accordianIcon === '+'){
+        if(accordianIcon3 === '+'){
             fcShow3()
-            setAccordianIcon('-')
+            setAccordianIcon3('-')
         }else{
             fcHide3()
-            setAccordianIcon('+')
+            setAccordianIcon3('+')
         }
     }
     const footerBoxCss = {
@@ -143,9 +145,9 @@ export default function AppFooter() {
                     {/* box third */}
                     <Box>
                         <Typography sx={headingText}>Our Work
-                            <Typography sx={{ float: "right", fontSize: '22px', display: { xs: 'block', md: 'none', marginRight: '10px', fontSize: '26px' } }} onClick={fcShowHide2}>{accordianIcon}</Typography>
+                            <Typography sx={{ float: "right", fontSize: '22px', display: { xs: 'block', md: 'none', marginRight: '10px', fontSize: '26px' } }} onClick={fcShowHide2}>{accordianIcon2}</Typography>
                         </Typography>
-                        <Box sx={{height:{xs:fcHeight.height2,md:'auto'},overflow:'hidden'}}>
+                        <Box sx={{height:{xs:fcHeight.height2,md:'auto'},overflow:'hidden',transition:'0.4s all linear'}}>
                             <Typography sx={footerLinks}>Seo Results</Typography>
                             <Typography sx={footerLinks}>Web Design Portfolio</Typography>
                         </Box>
@@ -163,7 +165,7 @@ export default function AppFooter() {
                     <Box>
                         <Typography sx={{ margin: {xs:"-25px 0px 30px 0px",sm:"-12px 0px 30px 0px",md:"25px 0px 30px 0px"}, fontFamily: "poppins", fontSize: "22px", fontWeight: "300" }}>
                             <Map fontSize='large' sx={{ border: "2px solid #ffffff", borderRadius: "50%", padding: "5px", position: "relative", top: "8px", left: "-5px" }} />
-                            Contact<Typography sx={{ float: "right", display: { xs: 'block', md: 'none' }, marginRight: '10px', fontSize: '26px', paddingTop: '10px' }} onClick={fcShowHide3}>{accordianIcon}</Typography>
+                            Contact<Typography sx={{ float: "right", display: { xs: 'block', md: 'none' }, marginRight: '10px', fontSize: '26px', paddingTop: '10px' }} onClick={fcShowHide3}>{accordianIcon3}</Typography>
                         </Typography>
                         <Box sx={{height:{xs:fcHeight.height3,md:'auto'},overflow:'hidden'}}>
                             <Typography sx={{ fontSize: "17px", fontFamily: "open sans", fontWeight: "300", marginBottom: "20px", lineHeight: '30px' }} >
