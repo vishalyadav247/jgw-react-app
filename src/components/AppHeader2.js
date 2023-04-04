@@ -69,18 +69,18 @@ export default function AppHeader(props) {
     width: "100%",
     position: "fixed",
     zIndex: "99",
-    top: '-84px',
+    top: '0px',
     backgroundColor: "#000000"
   }
 
 
   return (
-    <Box sx={AppHeaderWrapperCss} className="appBar" id="appHeader">
+    <Box sx={AppHeaderWrapperCss} className="appBar" id="appHeader2">
       <CssBaseline />
       <AppBar component="nav" sx={{ maxWidth: "1200px", right: "auto", boxShadow: "none", backgroundColor: { xs: "black", md: "transparent" }, position: "fixed", top: "0px", zIndex: "10" }} >
         <Toolbar style={{ display: "flex", justifyContent: "space-between", height: "84px", padding: "0px" }}>
           <Box style={{ marginTop: "10px" }}>
-            <img src={logo} style={{ width: "192px", height: "43px" }} alt="logo" className='siteLogo' id="logoImg" />
+            <img src={logo} style={{ width: "192px", height: "43px" }} alt="logo" className='siteLogo' id="logoImg2" />
           </Box>
           <Box sx={{ display: { xs: 'none', md: 'block' } }} className="menuList">
             <Link to='/' className="menuBtn" style={linkCss}>

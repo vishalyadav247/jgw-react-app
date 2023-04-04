@@ -3,6 +3,29 @@ import { Box } from '@mui/system'
 import React from 'react'
 
 export default function SingleHeading(props) {
+<<<<<<< HEAD
+  const SingleHeadingWrapperCss = {
+    height: { xs: props.heightSm, md: props.heightLg },
+    display: 'flex',
+    justifyContent: "center",
+    alignItems: "center",
+    color: "#474747"
+  }
+  const titleCss = {
+    fontSize:{xs:props.titleSizeSm,md:props.titleSizeLg},
+    fontFamily: 'poppins',
+    color: '#4a4a4a',
+    fontWeight: '700',
+    textAlign: 'center'
+
+  }
+  return (
+    <Box sx={SingleHeadingWrapperCss} className="pageWidth">
+      <Typography sx={titleCss}>
+        {props.title}
+      </Typography>
+    </Box>
+=======
   const BgText={
       position:'absolute',
       left:'50%',
@@ -22,5 +45,6 @@ export default function SingleHeading(props) {
     </Typography>
     <Typography sx={BgText}>{props.bgText}</Typography>
    </Box>
+>>>>>>> 9a7b24ca736dc44785b4b6931b2ee3b82deef66b
   )
 }
