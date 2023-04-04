@@ -12,7 +12,7 @@ export default function AppFooter() {
     const [fcHeight,setFcHeight]= useState({
         height1:'0px',
         height2:'0px',
-        maxheight3:'0px',
+        height3:'0px',
     });
     const [accordianIcon,setAccordianIcon]= useState('+');
     const [accordianIcon2,setAccordianIcon2]= useState('+');
@@ -30,7 +30,7 @@ export default function AppFooter() {
     }
     const fcShow3=()=>{
         setFcHeight((obj)=>{
-            return ({...obj,maxheight3:'1000px'})
+            return ({...obj,height3:'150px'})
         })
     }
     const fcHide1=()=>{
@@ -147,7 +147,7 @@ export default function AppFooter() {
                         <Typography sx={headingText}>Our Work
                             <Typography sx={{ float: "right", fontSize: '22px', display: { xs: 'block', md: 'none', marginRight: '10px', fontSize: '26px' } }} onClick={fcShowHide2}>{accordianIcon2}</Typography>
                         </Typography>
-                        <Box sx={{height:{xs:fcHeight.height2,md:'auto'},overflow:'hidden',transition:'0.4s all linear'}}>
+                        <Box sx={{height:{xs:fcHeight.height2,md:'auto'},overflow:'hidden',transition:'0.2s all linear'}}>
                             <Typography sx={footerLinks}>Seo Results</Typography>
                             <Typography sx={footerLinks}>Web Design Portfolio</Typography>
                         </Box>
@@ -167,7 +167,7 @@ export default function AppFooter() {
                             <Map fontSize='large' sx={{ border: "2px solid #ffffff", borderRadius: "50%", padding: "5px", position: "relative", top: "8px", left: "-5px" }} />
                             Contact<Typography sx={{ float: "right", display: { xs: 'block', md: 'none' }, marginRight: '10px', fontSize: '26px', paddingTop: '10px' }} onClick={fcShowHide3}>{accordianIcon3}</Typography>
                         </Typography>
-                        <Box sx={{height:{xs:fcHeight.height3,md:'auto'},overflow:'hidden'}}>
+                        <Box sx={{height:{xs:fcHeight.height3,md:'auto'},overflow:'hidden',transition:'0.3s all linear'}}>
                             <Typography sx={{ fontSize: "17px", fontFamily: "open sans", fontWeight: "300", marginBottom: "20px", lineHeight: '30px' }} >
                                 #Bay: 105, <br />
                                 Sweetball Business Centre,<br />
