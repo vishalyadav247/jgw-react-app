@@ -86,7 +86,7 @@ export default function WeAre() {
                     </Typography>
                 </Box>
             </Box>
-            <Box className="weAreRight">
+            <Box className="weAreRight" sx={{paddingBottom:{xs:'60px',md:'0px'}}}>
                 <Typography sx={weAreContent} id="weAreContent">
                     Digital marketing is in our blood. We live and breath digital
                     marketing day and night. We understand the complete digital

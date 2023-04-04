@@ -26,7 +26,8 @@ export default function Home() {
                 heightSm='160px'
                 heightLg='200px'
                 titleSizeSm='28px'
-                titleSizeLg='35px' />
+                titleSizeLg='35px'
+                bgText='EXPLORE' />
 
             <AgencyServices />
 
@@ -35,7 +36,8 @@ export default function Home() {
                 heightSm='160px'
                 heightLg='200px'
                 titleSizeSm='28px'
-                titleSizeLg='35px' />
+                titleSizeLg='35px'
+                bgText='LOOK' />
 
             <WeDo />
 
@@ -44,7 +46,8 @@ export default function Home() {
                 heightSm='160px'
                 heightLg='200px'
                 titleSizeSm='28px'
-                titleSizeLg='35px' />
+                titleSizeLg='35px'
+                bgText='KNOW' />
 
             <WeAre />
 
@@ -53,7 +56,8 @@ export default function Home() {
                 heightSm='160px'
                 heightLg='200px'
                 titleSizeSm='28px'
-                titleSizeLg='35px' />
+                titleSizeLg='35px'
+                bgText='READ' />
 
             <OurBlogs />
         </>
