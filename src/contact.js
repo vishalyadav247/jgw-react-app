@@ -1,13 +1,11 @@
 import React from 'react';
 import Box from '@mui/material/Box'
-import AppHeader from './components/AppHeader';
 import HomeBanner from './components/HomeBanner';
 import contactBanner from './images/banner2.jpg'
 
 export default function Contact() {
   return (
     <>
-      <AppHeader />
       <Box>
         <HomeBanner banner={contactBanner}
           title='Contact Us'

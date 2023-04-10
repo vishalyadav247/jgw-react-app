@@ -1,6 +1,5 @@
 import React from 'react';
 import HomeBanner from './components/HomeBanner';
-import AppHeader from './components/AppHeader';
 import SingleHeading from './components/SingleHeading';
 import AgencyServices from './components/AgencyServices';
 import WeDo from './components/WeDo';
@@ -11,7 +10,6 @@ import homeBanner from './images/banner1.jpg'
 export default function Home() {
     return (
         <>
-            <AppHeader />
 
             <HomeBanner
                 banner={homeBanner}

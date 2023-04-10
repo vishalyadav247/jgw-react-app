@@ -1,3 +1,5 @@
+
+
 .blogContent span {
   color: #ffffffa5
 }
@@ -91,9 +93,7 @@ img {
     color: #ffffff;
     padding:0px 5px 5px 9px;
   }
-  .menuBtn:first-child {
-    color: #fcb040;
-  } 
+ 
 }
 
 @media screen and (min-width:900px) and (max-width:1025px) {

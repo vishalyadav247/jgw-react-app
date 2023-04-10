@@ -1,5 +1,4 @@
 import React from 'react';
-import AppHeader2 from './components/AppHeader2';
 import HeadingWithContent from './components/HeadingWithContent';
 import SingleHeading from './components/SingleHeading';
 import TeamCardWrapper from './components/TeamCardWrapper';
@@ -9,11 +8,10 @@ import Box from '@mui/material/Box'
 export default function WhoWeAre() {
   return (
     <>
-    
-      <AppHeader2 />
+    <div style={{backgroundColor:'black',height:'84px',width:'100%',position:'sticky',top:'0px'}}></div>
       <Box sx={{padding:{xs:'20px'}}}>
       <HeadingWithContent 
-      positionFromTop='127px' 
+      positionFromTop='12px' 
       title='Who We Are' 
       content='At Justgoweb, we help businesses leverage digital marketing solutions 
         that drive leads, brand engagement and most importantly ROI.  We have 
