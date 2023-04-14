@@ -1,17 +1,31 @@
 
-
+.MuiPaper-root.MuiPaper-elevation.MuiPaper-elevation16.MuiDrawer-paper{
+  background-color:rgb(173 173 173);
+}
 .blogContent span {
   color: #ffffffa5
 }
 .teamImage:hover{
   transform:scale(1.1);
 }
-body::-webkit-scrollbar {
+/* body::-webkit-scrollbar {
   display:none;
-}
+} */
 body {
   scroll-behavior: smooth;
   font-family: poppins;
+}
+.contactUpperInputWrapper .MuiFormControl-root.MuiTextField-root{
+    margin-bottom: 5px;
+}
+
+.contactUpperInputWrapper .MuiFormControl-root.MuiTextField-root .MuiInputBase-root.MuiFilledInput-root::before,
+.contactLowerInputWrapper .MuiFormControl-root.MuiTextField-root .MuiInputBase-root.MuiFilledInput-root::before{
+  border-bottom:0px solid silver !important;
+}
+.contactLowerInputWrapper .MuiInputBase-root.MuiFilledInput-root{
+  height:100%;
+  margin-bottom: 5px;
 }
 
 .pageWidth {

@@ -8,6 +8,7 @@ import WhoWeAre from './whoWeAre';
 import AppFooter from './components/AppFooter';
 import Contact from './contact';
 import AppHeader from './components/AppHeader';
+import Shopify from './shopify';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -19,6 +20,7 @@ root.render(
         <Route index path="/" element={<Home />} />
         <Route path="about" element={<WhoWeAre />} />
         <Route path="contact" element={<Contact />} />
+        <Route path="shopify" element={<Shopify />} />
     </Routes>
     <AppFooter />
   </BrowserRouter>

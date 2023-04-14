@@ -30,6 +30,11 @@ setTimeout(() => {
     let lnkArr=Array.from(lnks);
     lnkArr[6].style.color='#fcb040'
   }
+  else if(address == '/shopify'){
+    let lnks=document.querySelectorAll('.menuBtn');
+    let lnkArr=Array.from(lnks);
+    lnkArr[4].style.color='#fcb040'
+  }
   else{
     let lnks=document.querySelectorAll('.menuBtn');
     let lnkArr=Array.from(lnks);
@@ -66,14 +71,17 @@ export default function AppHeader(props) {
     marginLeft: "34px",
     paddingRight: "0px",
     fontFamily: "poppins",
-    fontWeight: "500",
-    fontSize: "14px",
+    fontWeight: {xs:"700",md:'500'},
+    fontSize: {xs:"20px",md:'14px'},
     minWidth: "0px",
     textDecoration: 'none'
   }
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center'}} mt={4}>
+      <Box style={{ marginTop: "10px",marginBottom:'40px' }}>
+            <img src={logo} style={{ width: "192px", height: "43px" }} alt="logo" className='siteLogo' id="logoImg" />
+          </Box>
       <List sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
         <Link to='/' className="menuBtn M" style={linkCss} onClick={Active}>
           HOME
@@ -87,7 +95,7 @@ export default function AppHeader(props) {
         <Link to='/' className="menuBtn M" style={linkCss} onClick={Active}>
           UX DESIGN
         </Link>
-        <Link to='/' className="menuBtn M" style={linkCss} onClick={Active}>
+        <Link to='/shopify' className="menuBtn M" style={linkCss} onClick={Active}>
           SHOPIFY
         </Link>
         <Link to='/' className="menuBtn M" style={linkCss} onClick={Active}>
@@ -135,7 +143,7 @@ export default function AppHeader(props) {
             <Link to='/' className="menuBtn" style={linkCss} onClick={Active}>
               UX DESIGN
             </Link>
-            <Link to='/' className="menuBtn" style={linkCss} onClick={Active}>
+            <Link to='/shopify' className="menuBtn" style={linkCss} onClick={Active}>
               SHOPIFY
             </Link>
             <Link to='/' className="menuBtn" style={linkCss} onClick={Active}>
@@ -164,11 +172,11 @@ export default function AppHeader(props) {
           open={mobileOpen}
           onClose={handleDrawerToggle}
           ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
+          keepMounted: true, // Better open performance on mobile.
           }}
           sx={{
             display: { xs: 'block', md: 'none' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth }
           }}
         >
           {drawer}
