@@ -16,9 +16,9 @@ export default function ShopifyWork() {
         color: '#000000'
     }
     return (
-        <Box sx={{display:'grid',gridTemplateColumns:'1fr 1fr',gridTemplateRows:'1fr 1fr 1fr'}}>
-            <Box sx={{gridArea:'1/1/2/2'}}>
-                <img src={logo} alt='About Shopify' />
+        <Box sx={{display:'grid',gridTemplateColumns:'1fr 1fr'}}>
+            <Box sx={{gridArea:'1/1/2/2',height:'fit-content'}}>
+                <img src={logo} alt='About Shopify' style={{height:'100px',width:'100px'}}/>
             </Box>
             <Box sx={{gridArea:'2/1/3/2'}}>
                 <Typography>Socially Distant Cakes is India’s first
