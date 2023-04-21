@@ -35,6 +35,11 @@ setTimeout(() => {
     let lnkArr=Array.from(lnks);
     lnkArr[4].style.color='#fcb040'
   }
+  else if(address == '/blogs'){
+    let lnks=document.querySelectorAll('.menuBtn');
+    let lnkArr=Array.from(lnks);
+    lnkArr[5].style.color='#fcb040'
+  }
   else{
     let lnks=document.querySelectorAll('.menuBtn');
     let lnkArr=Array.from(lnks);
@@ -71,8 +76,6 @@ export default function AppHeader(props) {
     marginLeft: "34px",
     paddingRight: "0px",
     fontFamily: "poppins",
-    fontWeight: {xs:"700",md:'500'},
-    fontSize: {xs:"20px",md:'14px'},
     minWidth: "0px",
     textDecoration: 'none'
   }
@@ -98,7 +101,7 @@ export default function AppHeader(props) {
         <Link to='/shopify' className="menuBtn M" style={linkCss} onClick={Active}>
           SHOPIFY
         </Link>
-        <Link to='/' className="menuBtn M" style={linkCss} onClick={Active}>
+        <Link to='/blogs' className="menuBtn M" style={linkCss} onClick={Active}>
           THINKING
         </Link>
         <Link to='/contact' className="menuBtn M" style={linkCss} onClick={Active}>
@@ -146,21 +149,21 @@ export default function AppHeader(props) {
             <Link to='/shopify' className="menuBtn" style={linkCss} onClick={Active}>
               SHOPIFY
             </Link>
-            <Link to='/' className="menuBtn" style={linkCss} onClick={Active}>
+            <Link to='/blogs' className="menuBtn" style={linkCss} onClick={Active}>
               THINKING
             </Link>
             <Link to='/contact' className="menuBtn" style={linkCss} onClick={Active}>
               HIRE US!
             </Link>
           </Box>
-          <IconButton
+          <IconButton 
             color="inherit"
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { md: 'none' } }}
+            sx={{ mr: 2, display: { md: 'none' }}}
           >
-            <MenuIcon />
+            <MenuIcon id='ia' fontSize='large'/>
           </IconButton>
         </Toolbar>
 

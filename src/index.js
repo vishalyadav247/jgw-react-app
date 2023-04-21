@@ -9,7 +9,7 @@ import AppFooter from './components/AppFooter';
 import Contact from './contact';
 import AppHeader from './components/AppHeader';
 import Shopify from './shopify';
-
+import Blogs from './blogs'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -17,10 +17,11 @@ root.render(
     <BrowserRouter>
     <AppHeader />
       <Routes>
-        <Route index path="/" element={<Home />} />
-        <Route path="about" element={<WhoWeAre />} />
-        <Route path="contact" element={<Contact />} />
-        <Route path="shopify" element={<Shopify />} />
+        <Route index path="/" element={<Home />}     />
+        <Route path="about"   element={<WhoWeAre />} />
+        <Route path="contact" element={<Contact />}  />
+        <Route path="shopify" element={<Shopify />}  />
+        <Route path="blogs" element={<Blogs />}  />
     </Routes>
     <AppFooter />
   </BrowserRouter>

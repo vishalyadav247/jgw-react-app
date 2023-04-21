@@ -1,4 +1,10 @@
-
+.letsTalkFields .MuiInputBase-root{
+  background-color: #ffffff;
+}
+.menuBtn{
+  font-weight: 500;
+  font-size: 14px;
+}
 .MuiPaper-root.MuiPaper-elevation.MuiPaper-elevation16.MuiDrawer-paper{
   background-color:rgb(173 173 173);
 }
@@ -13,16 +19,21 @@
 } */
 body {
   scroll-behavior: smooth;
-  font-family: poppins;
 }
+
+body p{
+  font-family:open sans !important;
+}
+
 .contactUpperInputWrapper .MuiFormControl-root.MuiTextField-root{
-    margin-bottom: 5px;
+  margin-bottom: 5px;
 }
 
 .contactUpperInputWrapper .MuiFormControl-root.MuiTextField-root .MuiInputBase-root.MuiFilledInput-root::before,
 .contactLowerInputWrapper .MuiFormControl-root.MuiTextField-root .MuiInputBase-root.MuiFilledInput-root::before{
   border-bottom:0px solid silver !important;
 }
+
 .contactLowerInputWrapper .MuiInputBase-root.MuiFilledInput-root{
   height:100%;
   margin-bottom: 5px;
@@ -95,7 +106,10 @@ img {
     color: #000000;
     margin:0px 0px 10px 0px !important;
     padding: 10px;
+    font-weight: 600;
+    font-size: 17px;
   }
+
 }
 
 @media screen and (min-width:900px) {
