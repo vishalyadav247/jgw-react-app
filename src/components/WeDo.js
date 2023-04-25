@@ -15,7 +15,7 @@ export default function WeDo() {
     }
     return (
         <>
-            <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", lg: "1fr 1fr" }, height:{xs:"740px",sm:"650px"}, overflow: "hidden" }}>
+            <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", lg: "1fr 1fr" }, height:{xs:"740px",sm:"650px"}, overflow: "hidden" }} className='weDo'>
                 <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr" }, gridTemplateRows: { xs: "185px", sm: "325px 325px" } }} className="wedoLeft">
                     <Box sx={{ backgroundColor: " rgb(255, 232, 255)" }} className="center">
                         <Box sx={{ position: "absolute" }}>

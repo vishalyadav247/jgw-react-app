@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Box, Typography, Button, Divider } from '@mui/material'
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
@@ -84,3 +85,39 @@ export default function Blogs() {
     </>
   )
 }
+=======
+// import { Box, Button } from '@mui/material'
+// import axios from 'axios';
+// import React, { useEffect, useState } from 'react'
+
+// export default function Blogs() {
+//     const [data,setData]=useState([]);
+//     useEffect(()=>{
+//         axios.get('http://localhost:7000/blog/getAllBlogDetails').then((res)=>{
+//         setData(JSON.parse(res.data.data));
+//     })
+//     },[])   
+
+//   return (
+//     <>
+//       <div style={{backgroundColor:'black',height:'84px',width:'100%',position:'sticky',top:'0px'}}></div>
+//         <Box sx={{height:'100vh'}}>
+//          {data.map((item)=>{
+//             console.log(item.description);
+//          })}
+//         </Box>
+//     </>
+//   )
+// }
+
+import React from 'react'
+
+export default function Blogs() {
+  return (
+    <div>
+      Blogs
+    </div>
+  )
+}
+
+>>>>>>> a1ed09dde482a29ea1755cbd2ac8ee808cbfebde
