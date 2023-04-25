@@ -15,27 +15,27 @@ const drawerWidth = "80%";
 
 setTimeout(() => {
   let address=window.location.pathname
-  if(address == '/'){
+  if(address === '/'){
     let lnks=document.querySelectorAll('.menuBtn');
     let lnkArr=Array.from(lnks);
     lnkArr[0].style.color='#fcb040'
   }
-  else if(address == '/about'){
+  else if(address === '/about'){
     let lnks=document.querySelectorAll('.menuBtn');
     let lnkArr=Array.from(lnks);
     lnkArr[1].style.color='#fcb040'
   }
-  else if(address == '/contact'){
+  else if(address === '/contact'){
     let lnks=document.querySelectorAll('.menuBtn');
     let lnkArr=Array.from(lnks);
     lnkArr[6].style.color='#fcb040'
   }
-  else if(address == '/shopify'){
+  else if(address === '/shopify'){
     let lnks=document.querySelectorAll('.menuBtn');
     let lnkArr=Array.from(lnks);
     lnkArr[4].style.color='#fcb040'
   }
-  else if(address == '/blogs'){
+  else if(address === '/blogs'){
     let lnks=document.querySelectorAll('.menuBtn');
     let lnkArr=Array.from(lnks);
     lnkArr[5].style.color='#fcb040'
