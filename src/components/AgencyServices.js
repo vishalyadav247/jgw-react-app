@@ -28,7 +28,7 @@ export default function AgencyServices() {
         fontWeight: "700"
     }
     return (
-        <Box className="pageWidth" sx={{ display: "flex", flexWrap: "wrap" }}>
+        <Box className="pageWidth agencyServices" sx={{ display: "flex", flexWrap: "wrap" }}>
             <Box sx={{ width: { xs: "100%", sm: "50%", md: "25%" } }} className="center">
                 <Box sx={ImageWrapperDesk}>
                     <img src={Webdev} alt="Website & Design" loading='lazy' />
