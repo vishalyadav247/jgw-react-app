@@ -65,7 +65,7 @@ export default function LetsTalkFormBanner(props) {
                     <Typography sx={descCss}>{props.description}</Typography>
                     <Link to={props.linkAddress} style={linkCss}>{props.buttonText}</Link>
                 </Box>
-                <Box sx={{ width: {xs:'100%',md:'38.5%'} ,backgroundColor:'#ffffff',borderRadius:{xs:'0px',md:'12% 0px 0px 0px'},overflow:'hidden'}}>
+                <Box sx={{ width: {xs:'100%',md:'38.5%'} ,backgroundColor:'#ffffff',borderRadius:{xs:'0px',md:'12% 0px 0px 0px'},overflow:'hidden',marginTop:{xs:'100px',md:'0px'}}}>
                     <Box sx={{backgroundColor:'#ededed'}}>
                         <Typography sx={FormTitleCss}>Let's talk Shopify Plus</Typography>
                         <Box sx={InputWrapperCss} className='contactUpperInputWrapper'>

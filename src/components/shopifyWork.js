@@ -33,7 +33,7 @@ export default function ShopifyWork(props) {
                 <Typography sx={descCss}>{props.desc}</Typography>
             </Box>
             <Box sx={{gridArea:{xs:'4/1/5/2',md:'3/1/4/2'}}}>
-                <a href={props.siteLink} target='_blank' style={LinkCss}>View Website</a>
+                <a href={props.siteLink} rel="noreferrer" target='_blank' style={LinkCss}>View Website</a>
             </Box>
             <Box sx={{gridArea:{xs:'2/1/3/2',md:'1/2/4/3'},margin:{xs:'25px 0px',md:'0px'}}}>
                  <img src={props.siteImage} alt='About Shopify' />

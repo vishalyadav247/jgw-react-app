@@ -43,7 +43,7 @@ export default function OurBlogs() {
         padding:"10px 20px"
     }
     return (
-        <Box sx={{ backgroundColor: '#f8f8f8', padding:{xs:'10px 20px 60px 20px',md: '10px 30px 60px 30px',lg: '10px 0px 60px 0px'} }}>
+        <Box sx={{ backgroundColor: '#f8f8f8', padding:{xs:'60px 20px 60px 20px',md: '60px 30px 60px 30px',lg: '60px 0px 60px 0px'} }}>
             <Box className="blogsWrapper" sx={wrapperCss}>
 
                 <Box className="blogItem" sx={itemCss}>
