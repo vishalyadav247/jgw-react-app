@@ -5,12 +5,16 @@ import React, { useEffect, useState } from 'react';
 export default function Blogs() {
   const [data, setData] = useState([]);
   useEffect(() => {
-    axios.get('https://www.justgoweb.com/wp-json/wp/v2/posts').then((response) => {
-      const posts = response.data;
-      console.log(posts);
-      setData(posts);
-    })
+    async function my() {
+      await axios.get('https://www.justgoweb.com/wp-json/wp/v2/posts').then((response) => {
+        const posts = response.data;
+        console.log(posts);
+        setData(posts);
+      })
+    }
+    my()
   }, [])
+
 
 
   const wrapperCss = {
@@ -31,8 +35,8 @@ export default function Blogs() {
     fontWeight: "400",
     lineHeight: "30px",
     // height: { xs: "auto", md: "153px", lg: "auto" },
-    height:'90px',
-    overflow:'hidden',
+    height: '90px',
+    overflow: 'hidden',
     // overflow: { xs: "visible", md: "hidden", lg: "visible" }
   }
   const MiddleSpan = {
@@ -53,7 +57,7 @@ export default function Blogs() {
 
   return (
     <>
-      <div style={{backgroundColor:'black',height:'84px',width:'100%',position:'sticky',top:'0px'}}></div>
+      <div style={{ backgroundColor: 'black', height: '84px', width: '100%', position: 'sticky', top: '0px' }}></div>
       <Box sx={{ backgroundColor: '#f8f8f8', padding: { xs: '60px 20px', md: '60px 30px', lg: '60px 0px' } }}>
         <Box className="blogsWrapper" sx={wrapperCss}>
 
@@ -64,8 +68,6 @@ export default function Blogs() {
               </Box>
               <Box className='blogContent' sx={{ backgroundColor: "rgba(0,67,139,1)", padding: "32px 25px", marginTop: "-6px" }}>
                 <Typography className='blogTitle' sx={BlogTitle}>{post.yoast_head_json.og_title}</Typography>
-              
-
 
                 <Divider sx={{ width: "100%", height: "1px", backgroundColor: "white", margin: "25px 0px" }} />
                 <Typography sx={{ color: '#ffffff', fontSize: '12px', fontFamily: 'open sans' }}>

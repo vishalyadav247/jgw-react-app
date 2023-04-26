@@ -25,7 +25,9 @@ body {
 .teamImage:hover{
   transform:scale(1.1);
 }
-
+.work:nth-child(odd){
+  background-color:#f9f9f9;
+}
 
 .contactUpperInputWrapper .MuiFormControl-root.MuiTextField-root{
   margin-bottom: 5px;
@@ -97,9 +99,14 @@ img {
   #footerBlog {
     margin: 35px 0px !important;
   }
+  .logoWrapper{
+    display: flex;
+    justify-content:center ;
+  }
 }
 
 @media screen and (max-width:899px) {
+
   .leftContent::before {
     top: -28px;
   }
