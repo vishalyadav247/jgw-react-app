@@ -1,6 +1,7 @@
 import { Box, Typography, Button, Divider } from '@mui/material'
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { Link } from "react-router-dom";
 
 export default function Blogs() {
   const [data, setData] = useState([]);
@@ -8,7 +9,6 @@ export default function Blogs() {
     async function my() {
       await axios.get('https://www.justgoweb.com/wp-json/wp/v2/posts').then((response) => {
         const posts = response.data;
-        console.log(posts);
         setData(posts);
       })
     }
@@ -60,9 +60,9 @@ export default function Blogs() {
       <div style={{ backgroundColor: 'black', height: '84px', width: '100%', position: 'sticky', top: '0px' }}></div>
       <Box sx={{ backgroundColor: '#f8f8f8', padding: { xs: '60px 20px', md: '60px 30px', lg: '60px 0px' } }}>
         <Box className="blogsWrapper" sx={wrapperCss}>
-
+     
           {data.map(post => (
-            <Box className="blogItem" sx={itemCss}>
+            <Box className="blogItem" sx={itemCss} key={post.id}>
               <Box className='blogImageWrapper'>
                 <img src={post.yoast_head_json.og_image[0].url} alt="blogImage" />
               </Box>
@@ -75,7 +75,7 @@ export default function Blogs() {
                   <span style={MiddleSpan}>December 28th, 2020</span>
                   <span>Categories: Shopify, Web Development</span>
                 </Typography>
-                <Button variant="contained" sx={BlogCardReadMoreBtn} ><a href={post.link}>Read More</a></Button>
+                <Button variant="contained" sx={BlogCardReadMoreBtn} ><Link to={`/posts/${post.id}`}>Read More</Link></Button>
               </Box>
             </Box>
           ))}

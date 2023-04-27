@@ -9,68 +9,68 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import Clutch from '../images/clutch.png'
 
 export default function AppFooter() {
-    const [fcHeight,setFcHeight]= useState({
-        height1:'0px',
-        height2:'0px',
-        height3:'0px',
+    const [fcHeight, setFcHeight] = useState({
+        height1: '0px',
+        height2: '0px',
+        height3: '0px',
     });
-    const [accordianIcon,setAccordianIcon]= useState('+');
-    const [accordianIcon2,setAccordianIcon2]= useState('+');
-    const [accordianIcon3,setAccordianIcon3]= useState('+')
+    const [accordianIcon, setAccordianIcon] = useState('+');
+    const [accordianIcon2, setAccordianIcon2] = useState('+');
+    const [accordianIcon3, setAccordianIcon3] = useState('+')
 
-    const fcShow1=()=>{
-        setFcHeight((obj)=>{
-            return ({...obj,height1:'210px'})
+    const fcShow1 = () => {
+        setFcHeight((obj) => {
+            return ({ ...obj, height1: '210px' })
         })
     }
-    const fcShow2=()=>{
-        setFcHeight((obj)=>{
-            return ({...obj,height2:'60px'})
+    const fcShow2 = () => {
+        setFcHeight((obj) => {
+            return ({ ...obj, height2: '60px' })
         })
     }
-    const fcShow3=()=>{
-        setFcHeight((obj)=>{
-            return ({...obj,height3:'150px'})
+    const fcShow3 = () => {
+        setFcHeight((obj) => {
+            return ({ ...obj, height3: '150px' })
         })
     }
-    const fcHide1=()=>{
-        setFcHeight((obj)=>{
-            return ({...obj,height1:'0px'})
+    const fcHide1 = () => {
+        setFcHeight((obj) => {
+            return ({ ...obj, height1: '0px' })
         })
     }
-    const fcHide2=()=>{
-        setFcHeight((obj)=>{
-            return ({...obj,height2:'0px'})
+    const fcHide2 = () => {
+        setFcHeight((obj) => {
+            return ({ ...obj, height2: '0px' })
         })
     }
-    const fcHide3=()=>{
-        setFcHeight((obj)=>{
-            return ({...obj,height3:'0px'})
+    const fcHide3 = () => {
+        setFcHeight((obj) => {
+            return ({ ...obj, height3: '0px' })
         })
     }
-    const fcShowHide1=()=>{
-        if(accordianIcon === '+'){
+    const fcShowHide1 = () => {
+        if (accordianIcon === '+') {
             fcShow1()
             setAccordianIcon('-')
-        }else{
+        } else {
             fcHide1()
             setAccordianIcon('+')
         }
     }
-    const fcShowHide2=()=>{
-        if(accordianIcon2 === '+'){
+    const fcShowHide2 = () => {
+        if (accordianIcon2 === '+') {
             fcShow2()
             setAccordianIcon2('-')
-        }else{
+        } else {
             fcHide2()
             setAccordianIcon2('+')
         }
     }
-    const fcShowHide3=()=>{
-        if(accordianIcon3 === '+'){
+    const fcShowHide3 = () => {
+        if (accordianIcon3 === '+') {
             fcShow3()
             setAccordianIcon3('-')
-        }else{
+        } else {
             fcHide3()
             setAccordianIcon3('+')
         }
@@ -79,18 +79,18 @@ export default function AppFooter() {
         display: "grid",
         gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr 1fr', lg: "1fr 1fr 1fr 1fr 1fr" },
         gridGap: "20px",
-        gridRowGap: {xs: '25px', sm: '35px', lg: '20px' },
+        gridRowGap: { xs: '25px', sm: '35px', lg: '20px' },
         maxWidth: "1200px",
         margin: "auto",
         paddingTop: "40px",
-        paddingBottom: {xs:"20px",sm:'0px'},
+        paddingBottom: { xs: "20px", sm: '0px' },
         color: "#ffffff"
     }
     const headingText = {
         fontFamily: "poppins",
         fontSize: "22px",
         fontWeight: "700",
-        marginBottom: {xs:'15px',sm:"30px"}
+        marginBottom: { xs: '15px', sm: "30px" }
     }
     const footerLinks = {
         fontFamily: "open sans",
@@ -128,9 +128,10 @@ export default function AppFooter() {
                     {/* box second */}
                     <Box>
                         <Typography sx={headingText}>What We Do
-                            <Typography sx={{ float: "right", display: { xs: 'block', md: 'none' }, marginRight: '10px', fontSize: '26px' }} onClick={fcShowHide1}>{accordianIcon}</Typography>
                         </Typography>
-                        <Box sx={{height:{xs:fcHeight.height1,md:'auto',overflow:'hidden',transition:'0.4s all linear'}}}>
+                        <Typography sx={{marginTop:{xs:'-50px',sm:'-65px'}, float: "right", display: { xs: 'block', md: 'none' }, marginRight: '10px', fontSize: '26px' }} onClick={fcShowHide1}>{accordianIcon}</Typography>
+
+                        <Box sx={{ height: { xs: fcHeight.height1, md: 'auto', overflow: 'hidden', transition: '0.4s all linear' } }}>
                             <Typography sx={footerLinks}>Search Engine Optimisation</Typography>
                             <Typography sx={footerLinks}>Social Media Marketing</Typography>
                             <Typography sx={footerLinks}>Paid Search Marketing</Typography>
@@ -145,9 +146,9 @@ export default function AppFooter() {
                     {/* box third */}
                     <Box>
                         <Typography sx={headingText}>Our Work
-                            <Typography sx={{ float: "right", fontSize: '22px', display: { xs: 'block', md: 'none', marginRight: '10px', fontSize: '26px' } }} onClick={fcShowHide2}>{accordianIcon2}</Typography>
                         </Typography>
-                        <Box sx={{height:{xs:fcHeight.height2,md:'auto'},overflow:'hidden',transition:'0.2s all linear'}}>
+                        <Typography sx={{ marginTop:{xs:'-50px',sm:'-65px'},float: "right", fontSize: '22px', display: { xs: 'block', md: 'none', marginRight: '10px', fontSize: '26px' } }} onClick={fcShowHide2}>{accordianIcon2}</Typography>
+                        <Box sx={{ height: { xs: fcHeight.height2, md: 'auto' }, overflow: 'hidden', transition: '0.2s all linear' }}>
                             <Typography sx={footerLinks}>Seo Results</Typography>
                             <Typography sx={footerLinks}>Web Design Portfolio</Typography>
                         </Box>
@@ -163,11 +164,12 @@ export default function AppFooter() {
 
                     {/* box fifth */}
                     <Box>
-                        <Typography sx={{ margin: {xs:"-25px 0px 30px 0px",sm:"-12px 0px 30px 0px",md:"25px 0px 30px 0px"}, fontFamily: "poppins", fontSize: "22px", fontWeight: "300" }}>
+                        <Typography sx={{ margin: { xs: "-25px 0px 30px 0px", sm: "-12px 0px 30px 0px", md: "25px 0px 30px 0px" }, fontFamily: "poppins", fontSize: "22px", fontWeight: "300" }}>
                             <Map fontSize='large' sx={{ border: "2px solid #ffffff", borderRadius: "50%", padding: "5px", position: "relative", top: "8px", left: "-5px" }} />
-                            Contact<Typography sx={{ float: "right", display: { xs: 'block', md: 'none' }, marginRight: '10px', fontSize: '26px', paddingTop: '10px' }} onClick={fcShowHide3}>{accordianIcon3}</Typography>
+                            Contact
                         </Typography>
-                        <Box sx={{height:{xs:fcHeight.height3,md:'auto'},overflow:'hidden',transition:'0.3s all linear'}}>
+                        <Typography sx={{ marginTop:'-77px',float: "right", display: { xs: 'block', md: 'none' }, marginRight: '10px', fontSize: '26px', paddingTop: '10px' }} onClick={fcShowHide3}>{accordianIcon3}</Typography>
+                        <Box sx={{ height: { xs: fcHeight.height3, md: 'auto' }, overflow: 'hidden', transition: '0.3s all linear' }}>
                             <Typography sx={{ fontSize: "17px", fontFamily: "open sans", fontWeight: "300", marginBottom: "20px", lineHeight: '30px' }} >
                                 #Bay: 105, <br />
                                 Sweetball Business Centre,<br />
@@ -176,7 +178,7 @@ export default function AppFooter() {
                             </Typography>
                         </Box>
                         <Box>
-                        <Typography sx={headingText}>Follow Us</Typography>
+                            <Typography sx={headingText}>Follow Us</Typography>
                             <Typography sx={{ marginLeft: "-4px" }}><FacebookIcon fontSize='large' sx={{ marginRight: "15px" }} /><TwitterIcon fontSize='large' sx={{ marginRight: "15px" }} /><LinkedInIcon fontSize='large' sx={{ marginRight: "15px" }} /></Typography>
                         </Box>
                     </Box>

@@ -40,6 +40,11 @@ setTimeout(() => {
     let lnkArr=Array.from(lnks);
     lnkArr[5].style.color='#fcb040'
   }
+  else if(address.includes('/posts')){
+    let lnks=document.querySelectorAll('.menuBtn');
+    let lnkArr=Array.from(lnks);
+    lnkArr[5].style.color='#fcb040'
+  }
   else{
     let lnks=document.querySelectorAll('.menuBtn');
     let lnkArr=Array.from(lnks);

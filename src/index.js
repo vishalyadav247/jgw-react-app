@@ -10,6 +10,7 @@ import Contact from './contact';
 import AppHeader from './components/AppHeader';
 import Shopify from './shopify';
 import Blogs from './blogs'
+import SinglePost from './components/SinglePost';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -22,6 +23,7 @@ root.render(
         <Route path="contact" element={<Contact />}  />
         <Route path="shopify" element={<Shopify />}  />
         <Route path="blogs" element={<Blogs />}  />
+        <Route path="/posts/:id" element={<SinglePost />}/>
     </Routes>
     <AppFooter />
   </BrowserRouter>
