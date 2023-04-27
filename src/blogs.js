@@ -13,7 +13,7 @@ export default function Blogs() {
       })
     }
     my()
-  }, [])
+  },[])
 
 
 
@@ -54,13 +54,23 @@ export default function Blogs() {
     textTransform: "capitalize",
     padding: "10px 20px"
   }
+  const loaderCss = {
+    width:'100%',
+    height:'90vh',
+    display:'flex',
+    justifyContent:'center',
+    alignItems:'center',
+    color:'#272bff',
+    fontSize:'40px'
+}
 
   return (
     <>
       <div style={{ backgroundColor: 'black', height: '84px', width: '100%', position: 'sticky', top: '0px' }}></div>
+      {data[0] ? (
       <Box sx={{ backgroundColor: '#f8f8f8', padding: { xs: '60px 20px', md: '60px 30px', lg: '60px 0px' } }}>
         <Box className="blogsWrapper" sx={wrapperCss}>
-     
+        
           {data.map(post => (
             <Box className="blogItem" sx={itemCss} key={post.id}>
               <Box className='blogImageWrapper'>
@@ -79,9 +89,13 @@ export default function Blogs() {
               </Box>
             </Box>
           ))}
+          
 
         </Box>
+
       </Box>
+      ) 
+          : <Box sx={loaderCss}>Loading...</Box>}
 
     </>
   )
