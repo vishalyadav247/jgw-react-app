@@ -1,31 +1,56 @@
 import React from 'react';
 import Box from '@mui/material/Box';
-import Blog1 from '../images/blog1.jpg';
-import Blog2 from '../images/blog2.jpg';
-import Blog3 from '../images/blog3.jpg';
 import { Button, Divider, Typography } from '@mui/material';
+import { useEffect, useState } from 'react';
+import moment from 'moment';
+import { Link } from "react-router-dom";
 
 
-export default function OurBlogs() {
+
+
+export default function OurBlogs(props) {
+    const { data, categories } = props;
+    const [recentPost, setRecentPost] = useState([])
+
+    useEffect(() => {
+
+        function my() {
+            const p1 = new Promise((resolve, reject) => {
+                const postArray = []
+                for (let i = 0; i < 3; i++) {
+                    const post = data[i];
+                    postArray.push(post)
+                }
+                resolve(postArray)
+            });
+            p1.then((value) => {
+                console.log(value);
+                setRecentPost(value)
+            })
+        }
+        my()
+
+    }, [data])
+
     const wrapperCss = {
         display: "grid",
-        gridTemplateColumns: {xs:"1fr",sm:"1fr 1fr",md:"1fr 1fr 1fr"},
+        gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr", md: "1fr 1fr 1fr" },
         gridGap: "40px",
         maxWidth: "1200px",
         margin: "auto"
     }
     const itemCss = {
-        borderRadius:"10px",
-        overflow:"hidden !important"
+        borderRadius: "10px",
+        overflow: "hidden !important"
     }
     const BlogTitle = {
         color: "white",
         fontFamily: "poppins",
         fontSize: "24px",
         fontWeight: "400",
-        lineHeight:"30px",
-        height:{xs:"auto",md:"153px",lg:"auto"},
-        overflow:{xs:"visible",md:"hidden",lg:"visible"}
+        lineHeight: "30px",
+        height: { xs: "auto", md: "153px", lg: "auto" },
+        overflow: { xs: "visible", md: "hidden", lg: "visible" }
     }
     const MiddleSpan = {
         borderLeft: "1px solid #ffffffa5",
@@ -33,70 +58,47 @@ export default function OurBlogs() {
         padding: "0px 5px",
         margin: "0px 5px"
     }
-    const BlogCardReadMoreBtn={
-        marginTop:"25px",
-        backgroundColor:"#fcb040",
-        fontSize:"12px",
-        fontFamily:"open sans",
-        borderRadius:"0px",
-        textTransform:"capitalize",
-        padding:"10px 20px"
+    const BlogCardReadMoreBtn = {
+        marginTop: "25px",
+        backgroundColor: "#fcb040",
+        fontSize: "12px",
+        fontFamily: "open sans",
+        borderRadius: "0px",
+        textTransform: "capitalize" ,
+        padding:'0px'
+       }
+    const topScroll = () => {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
     }
     return (
-        <Box sx={{ backgroundColor: '#f8f8f8', padding:{xs:'60px 20px 60px 20px',md: '60px 30px 60px 30px',lg: '60px 0px 60px 0px'} }}>
-            <Box className="blogsWrapper" sx={wrapperCss}>
+        <Box sx={{ backgroundColor: '#f8f8f8', padding: { xs: '60px 20px 60px 20px', md: '60px 30px 60px 30px', lg: '60px 0px 60px 0px' } }}>
 
-                <Box className="blogItem" sx={itemCss}>
-                    <Box className='blogImageWrapper'>
-                        <img src={Blog1} alt="blogImage" />
-                    </Box>
-                    <Box className='blogContent' sx={{ backgroundColor: "rgba(0,67,139,1)", padding: "32px 25px",marginTop:"-6px" }}>
-                        <Typography className='blogTitle' sx={BlogTitle}>Shopify vs Squarespace:
-                            Who will be able to climb to the crest of the ecommerce world?</Typography>
-                        <Divider sx={{ width: "100%", height: "1px", backgroundColor: "white", margin: "25px 0px" }} />
-                        <Typography sx={{ color: '#ffffff', fontSize: '12px', fontFamily: 'open sans' }}>
-                            <span>By Aditya Khanna</span>
-                            <span style={MiddleSpan}>December 28th, 2020</span>
-                            <span>Categories: Shopify, Web Development</span>
-                        </Typography>
-                        <Button variant="contained" sx={BlogCardReadMoreBtn}>Read More</Button>
-                    </Box>
+            {recentPost[0] ? (
+                <Box className="blogsWrapper" sx={wrapperCss}>
+                    {recentPost.map(post => (
+                        <Box className="blogItem" sx={itemCss} key={recentPost.id}>
+                            <Box className='blogImageWrapper'>
+                                <img src={post.yoast_head_json.og_image[0].url} alt="blogImage" />
+                            </Box>
+                            <Box className='blogContent' sx={{ backgroundColor: "rgba(0,67,139,1)", padding: "32px 25px", marginTop: "-6px" }}>
+                                <Typography className='blogTitle' sx={BlogTitle} dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
+                                <Divider sx={{ width: "100%", height: "1px", backgroundColor: "white", margin: "25px 0px" }} />
+                                <Typography sx={{ color: '#ffffff', fontSize: '12px', fontFamily: 'open sans' }}>
+                                    <span>By {post.yoast_head_json.schema['@graph'][4].name}</span>
+                                    <span style={MiddleSpan}>{moment(post.date).format('MMMM Do , YYYY')}</span>
+                                    <span>categories : {categories[post.categories[0]]} {post.categories[1] ? ", " + categories[post.categories[1]] : ""}</span>
+                                </Typography>
+                                <Button variant="contained" sx={BlogCardReadMoreBtn} onClick={topScroll} >
+                                    <Link to={`/posts/${post.id}`} style={{ color: '#ffffff', textDecoration: 'none',padding:'10px 20px' }}>Read More
+                                    </Link>
+                                </Button>
+                            </Box>
+                        </Box>
+                    ))}
                 </Box>
+            ) : 'loading'}
 
-                <Box className="blogItem" sx={itemCss}>
-                    <Box className='blogImageWrapper'>
-                        <img src={Blog2} alt="blogImage" />
-                    </Box>
-                    <Box className='blogContent' sx={{ backgroundColor: "rgba(0,67,139,1)", padding: "32px 25px",marginTop:"-6px" }}>
-                        <Typography className='blogTitle' sx={BlogTitle}>Shopify vs Big Cartel – 
-                        Which platform would put an end to your research of building your website?</Typography>
-                        <Divider sx={{ width: "100%", height: "1px", backgroundColor: "white", margin: "25px 0px" }} />
-                        <Typography sx={{ color: '#ffffff', fontSize: '12px', fontFamily: 'open sans' }}>
-                            <span>By Aditya Khanna</span>
-                            <span style={MiddleSpan}>December 27th, 2020</span>
-                            <span>Categories: Shopify, Web Development</span>
-                        </Typography>
-                        <Button variant="contained" sx={BlogCardReadMoreBtn}>Read More</Button>
-                    </Box>
-                </Box>
-
-                <Box className="blogItem" sx={itemCss}>
-                    <Box className='blogImageWrapper'>
-                        <img src={Blog3} alt="blogImage" />
-                    </Box>
-                    <Box className='blogContent' sx={{ backgroundColor: "rgba(0,67,139,1)", padding: "32px 25px",marginTop:"-6px" }}>
-                        <Typography className='blogTitle' sx={BlogTitle}>Shopify vs Volusion-
-                         The battle between the oldest ecommerce platform and the leading one</Typography>
-                        <Divider sx={{ width: "100%", height: "1px", backgroundColor: "white", margin: "25px 0px" }} />
-                        <Typography sx={{ color: '#ffffff', fontSize: '12px', fontFamily: 'open sans' }}>
-                            <span>By Aditya Khanna</span>
-                            <span style={MiddleSpan}>December 25th, 2020</span>
-                            <span>Categories: Shopify, Web Development</span>
-                        </Typography>
-                        <Button variant="contained" sx={BlogCardReadMoreBtn}>Read More</Button>
-                    </Box>
-                </Box>
-            </Box>
         </Box>
     )
 }

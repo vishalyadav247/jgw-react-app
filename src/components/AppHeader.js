@@ -68,6 +68,8 @@ export default function AppHeader(props) {
       link.style.color='#000000'
     }
       event.target.style.color='#fcb040'
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
   }
 
   const { window } = props;

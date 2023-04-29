@@ -5,12 +5,14 @@ import AgencyServices from './components/AgencyServices';
 import WeDo from './components/WeDo';
 import WeAre from './components/WeAre';
 import OurBlogs from './components/OurBlogs';
-import homeBanner from './images/banner1.jpg'
+import homeBanner from './images/banner1.jpg';
 
-export default function Home() {
+
+export default function Home(props) {
+    const { data, categories } = props;
+
     return (
         <>
-
             <HomeBanner
                 banner={homeBanner}
                 title='DOMINATE THE COMPETITION'
@@ -57,7 +59,7 @@ export default function Home() {
                 titleSizeLg='35px'
                 bgText='READ' />
 
-            <OurBlogs />
+            <OurBlogs data={data} categories={categories}/>
         </>
     )
 }

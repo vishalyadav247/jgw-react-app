@@ -1,7 +1,31 @@
 /* body::-webkit-scrollbar {
   display:none;
 } */
-
+.ani{
+  display: inline-block;
+  width: 0px;
+  overflow: hidden;
+  animation: loding 1s ease-in-out infinite ;
+  height: 100%;
+  position: relative;
+  top: 11px;
+  color: #2167ff;
+  padding-left: 4px;
+}
+@keyframes loding {
+  0%{
+    width: 0px;
+  }
+  30%{
+    width: 11px;
+  }
+  65%{
+    width: 22px;
+  }
+  95%{
+    width: 33px;
+  }
+}
 body {
   scroll-behavior: smooth;
 }

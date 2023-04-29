@@ -8,7 +8,9 @@ import ShopifyWorkWrapper from './components/shopifyWorkWrapper';
 import Box from '@mui/material/Box'
 import { Typography } from '@mui/material';
 
-export default function Shopify() {
+
+export default function Shopify(props) {
+  const { data, categories } = props;
   const SectionTitleCss={
     fontSize:' 35px',
     fontFamily:' Poppins',
@@ -196,7 +198,7 @@ export default function Shopify() {
         titleSizeSm='28px'
         titleSizeLg='35px' />
 
-      <OurBlogs />
+      <OurBlogs data={data} categories={categories}/>
 
     </>
   )
