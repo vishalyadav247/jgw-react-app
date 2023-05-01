@@ -23,7 +23,7 @@ const App = () => {
   useEffect(() => {
     function my() {
       const p1 = new Promise((resolve, reject) => {
-        axios.get('https://www.justgoweb.com/wp-json/wp/v2/posts').then((response) => {
+        axios.get('https://www.justgoweb.com/wp-json/wp/v2/posts?per_page=100').then((response) => {
           const posts = response.data;
           resolve(posts)
         })

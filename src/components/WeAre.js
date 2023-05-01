@@ -74,6 +74,7 @@ export default function WeAre() {
         height:addCss.height,
         overflow:addCss.overflow
     }
+   
     return (
         <Box className="weAreWrapper" sx={weAreWrapper}>
             <Box className="weAreLeft" >

@@ -24,7 +24,6 @@ export default function OurBlogs(props) {
                 resolve(postArray)
             });
             p1.then((value) => {
-                console.log(value);
                 setRecentPost(value)
             })
         }
@@ -77,7 +76,7 @@ export default function OurBlogs(props) {
             {recentPost[0] ? (
                 <Box className="blogsWrapper" sx={wrapperCss}>
                     {recentPost.map(post => (
-                        <Box className="blogItem" sx={itemCss} key={recentPost.id}>
+                        <Box className="blogItem" sx={itemCss} key={post.id}>
                             <Box className='blogImageWrapper'>
                                 <img src={post.yoast_head_json.og_image[0].url} alt="blogImage" />
                             </Box>

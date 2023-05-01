@@ -1,6 +1,27 @@
 /* body::-webkit-scrollbar {
   display:none;
 } */
+/* .newsletterEmailInput #letternewsBtn:hover{
+  background-color: #f5881f;
+} */
+.newsletterEmailInput label{
+  padding: 0px 20px;
+}
+.letterInputParent .MuiFormControl-root.MuiTextField-root .MuiInputBase-root.MuiFilledInput-root::before,
+.letterInputParent .MuiFormControl-root.MuiTextField-root .MuiInputBase-root.MuiFilledInput-root::before{
+  border-bottom:0px solid silver !important;
+}
+
+.newsletterEmailInput input{
+  background: #ffffff;
+  box-shadow: 1px 2px 3px #dbdbdb;
+}
+.newsletterEmailInput label+div::before{
+  border-bottom: none;
+}
+.newsletterEmailInput label .css-1ff8729-MuiInputBase-root-MuiFilledInput-root:hover{
+  border-bottom: none;
+}
 .ani{
   display: inline-block;
   width: 0px;

@@ -2,6 +2,7 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import { Typography, Box } from '@mui/material';
 import moment from 'moment';
+import { Link } from "react-router-dom";
 
 
 export default function SinglePost(props) {
@@ -48,8 +49,11 @@ export default function SinglePost(props) {
     <>
       <div style={{ backgroundColor: 'black', height: '84px', width: '100%', position: 'sticky', top: '0px' }}></div>
       {post.id ? (
-        <Box sx={{ maxWidth: '1200px', margin: 'auto', padding: '50px 0px', overflow: 'hidden' }}>
-          <Box sx={{ maxWidth: '800px' }}>
+        <Box sx={{ maxWidth: '1200px', margin: 'auto', padding:{xs: '30px 20px 30px 20px',lg: '50px 0px 50px 0px'}, overflow: 'hidden' }}>
+          <Box sx={{fontSize:'13px',padding:'8px 0px',boxShadow: '1px 1px 2.5px #ded8f4',display:{xs:'none',md:'block',marginBottom:'30px'}}}>
+            <span><Link to='/blogs' style={{textDecoration:'none',fontWeight:'600',color:'black'}}>Blogs</Link></span><span style={{padding:'0px 6px'}}>|</span><span dangerouslySetInnerHTML={{ __html: post.title.rendered }}></span>
+          </Box>
+          <Box sx={{ maxWidth: '800px'}}>
             <Typography sx={titleCss} dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
             <img src={post.yoast_head_json.og_image[0].url} alt="blogImage" />
             <Typography sx={{fontFamily:"open sans",fontSize:'17px'}} dangerouslySetInnerHTML={{ __html: post.content.rendered }} />
