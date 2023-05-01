@@ -9,7 +9,8 @@ import AppFooter from './components/AppFooter';
 import Contact from './contact';
 import AppHeader from './components/AppHeader';
 import Shopify from './shopify';
-import Blogs from './blogs'
+import Blogs from './blogs';
+import Seo from './seo';
 import SinglePost from './components/SinglePost';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
@@ -23,7 +24,7 @@ const App = () => {
   useEffect(() => {
     function my() {
       const p1 = new Promise((resolve, reject) => {
-        axios.get('https://www.justgoweb.com/wp-json/wp/v2/posts?per_page=100').then((response) => {
+        axios.get('https://www.justgoweb.com/wp-json/wp/v2/posts?per_page=8').then((response) => {
           const posts = response.data;
           resolve(posts)
         })
@@ -80,11 +81,12 @@ const App = () => {
         <AppHeader />
         <Routes>
           <Route index path="/" element={<Home data={data} categories={categories} />} />
+          <Route path="seo" element={<Seo />} />
           <Route path="about" element={<WhoWeAre />} />
           <Route path="contact" element={<Contact />} />
           <Route path="shopify" element={<Shopify data={data} categories={categories}/>} />
           <Route path="blogs" element={<Blogs data={data} categories={categories} popularPost={popularPost} />} />
-          <Route path="/posts/:id" element={<SinglePost data={data} categories={categories} />} />
+          <Route path="/posts/:id" element={<SinglePost data={data} categories={categories} popularPost={popularPost}/>} />
         </Routes>
         <AppFooter />
       </BrowserRouter>

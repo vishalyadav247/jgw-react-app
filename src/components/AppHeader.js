@@ -40,6 +40,11 @@ setTimeout(() => {
     let lnkArr=Array.from(lnks);
     lnkArr[5].style.color='#fcb040'
   }
+  else if(address === '/seo'){
+    let lnks=document.querySelectorAll('.menuBtn');
+    let lnkArr=Array.from(lnks);
+    lnkArr[2].style.color='#fcb040'
+  }
   else if(address.includes('/posts')){
     let lnks=document.querySelectorAll('.menuBtn');
     let lnkArr=Array.from(lnks);
@@ -99,7 +104,7 @@ export default function AppHeader(props) {
         <Link to='/about' className="menuBtn M" style={linkCss} onClick={Active}>
           WHO WE ARE
         </Link>
-        <Link to='/' className="menuBtn M" style={linkCss} onClick={Active}>
+        <Link to='/seo' className="menuBtn M" style={linkCss} onClick={Active}>
           SEO
         </Link>
         <Link to='/' className="menuBtn M" style={linkCss} onClick={Active}>
@@ -147,7 +152,7 @@ export default function AppHeader(props) {
             <Link to='/about' className="menuBtn" style={linkCss} onClick={Active}>
               WHO WE ARE
             </Link>
-            <Link to='/' className="menuBtn" style={linkCss} onClick={Active}>
+            <Link to='/seo' className="menuBtn" style={linkCss} onClick={Active}>
               SEO
             </Link>
             <Link to='/' className="menuBtn" style={linkCss} onClick={Active}>

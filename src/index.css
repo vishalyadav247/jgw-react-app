@@ -4,6 +4,12 @@
 /* .newsletterEmailInput #letternewsBtn:hover{
   background-color: #f5881f;
 } */
+.pageRoot{
+  display:flex;
+}
+
+
+
 .newsletterEmailInput label{
   padding: 0px 20px;
 }

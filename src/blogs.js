@@ -7,7 +7,7 @@ import EmailIcon from './images/emailicon.png'
 
 export default function Blogs(props) {
   const { data, categories, popularPost } = props;
-  const [recentPost, setRecentPost] = useState([])
+  const [recentPost, setRecentPost] = useState([]);
 
   useEffect(() => {
 
@@ -72,11 +72,10 @@ export default function Blogs(props) {
       <div style={{ backgroundColor: 'black', height: '84px', width: '100%', position: 'sticky', top: '0px' }}></div>
       {data[0] ? (
         <Box sx={{ backgroundColor: '#fffffff', padding: { xs: '50px 20px', md: '50px 30px', lg: '50px 0px' } }}>
-          
-          <Box sx={{ maxWidth: "1200px", margin: "auto",fontSize: '13px', padding: '8px 0px', boxShadow: '1px 1px 2.5px #ded8f4', display: { xs: 'none', md: 'block', marginBottom: '42px' } }}>
+          <Box sx={{ maxWidth: "1200px", margin: "auto", fontSize: '13px', padding: '8px 0px', boxShadow: '1px 1px 2.5px #ded8f4', display: { xs: 'none', md: 'block', marginBottom: '42px' } }}>
             <span><Link to='/' style={{ textDecoration: 'none', fontWeight: '600', color: 'black' }}>Home</Link></span><span style={{ padding: '0px 6px' }}>|</span><span>Blogs</span>
           </Box>
-          
+
           <Box sx={{ maxWidth: "1200px", margin: "auto", display: 'flex', flexDirection: { xs: 'column', md: 'row' } }}>
 
             <Box className="blogsWrapper" sx={wrapperCss}>
@@ -150,6 +149,13 @@ export default function Blogs(props) {
                   <Button color='warning' variant="contained" sx={{ borderRadius: '4px', height: '45px', fontSize: '16px', width: '100%' }} id='letternewsBtn' >Subscribe</Button>
                 </Box>
               </Box>
+            </Box>
+          </Box>
+          <Box sx={{ maxWidth: "1200px", margin: "auto", marginTop: '50px' }}>
+            <Box sx={{width:'67%',display: 'flex', justifyContent: 'center'}}>
+              <Link to='#' style={{ margin: '0px 10px',textDecoration:'none',padding:'5px 15px',border:'1px solid black'}}>1</Link>
+              <Link to='#' style={{ margin: '0px 10px' ,textDecoration:'none',padding:'5px 15px',border:'1px solid black'}}>2</Link>
+              <Link to='#' style={{ margin: '0px 10px' ,textDecoration:'none',padding:'5px 15px',border:'1px solid black'}}>3</Link>
             </Box>
           </Box>
 
