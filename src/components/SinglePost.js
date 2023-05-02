@@ -1,26 +1,49 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
-import { Typography, Box,Button,TextField } from '@mui/material';
+import { Typography, Box, Button, TextField } from '@mui/material';
 import moment from 'moment';
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import newsletterImage from '../images/newslatterformimage.jpg';
-import EmailIcon from '../images/emailicon.png'
+import EmailIcon from '../images/emailicon.png';
 
 
 export default function SinglePost(props) {
-  const [postId,setPostId] = useState(window.location.pathname);
-  const { data, categories,popularPost } = props;
-  const [post, setPost] = useState({});
 
+  const { data, categories, popularPost } = props;
+  // import slug from path 
+  const { slug } = useParams();
+  // single post data
+  const [post, setPost] = useState({});
+  // recentpost data
   const [recentPost, setRecentPost] = useState([])
+
   const topScroll = () => {
-    setTimeout(()=>{
-      setPostId(window.location.pathname)
-    },10)
     document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0; 
+    document.documentElement.scrollTop = 0;
   }
 
+  // Single post data
+  useEffect(() => {
+
+    function my() {
+      const p1 = new Promise((resolve, reject) => {
+        for (let i of data) {
+          if (i.slug === slug) {
+            const post = i;
+            resolve(post)
+          }
+        }
+      });
+      p1.then((value) => {
+        setPost(value)
+      })
+
+    }
+    my()
+
+  }, [slug])
+
+  // Recent post function
   useEffect(() => {
 
     function my() {
@@ -35,31 +58,12 @@ export default function SinglePost(props) {
       p1.then((value) => {
         setRecentPost(value)
       })
-
     }
     my()
 
   }, [data])
 
-  useEffect(() => {
 
-    function my() {
-      const p1 = new Promise((resolve, reject) => {
-        for (let i of data) {
-          if (postId.includes(i.slug)) {
-            const post = i;
-            resolve(post)
-          }
-        }
-      });
-      p1.then((value) => {
-        setPost(value)
-      })
-
-    }
-    my()
-
-  }, [postId,post,data])
 
   const loaderCss = {
     width: '100%',
@@ -75,17 +79,19 @@ export default function SinglePost(props) {
     marginBottom: '30px',
     fontFamily: 'poppins'
   }
- 
+
 
   return (
     <>
       <div style={{ backgroundColor: 'black', height: '84px', width: '100%', position: 'sticky', top: '0px' }}></div>
       {post.id ? (
         <Box sx={{ maxWidth: '1200px', margin: 'auto', padding: { xs: '30px 20px 30px 20px', lg: '50px 0px 50px 0px' }, overflow: 'hidden' }}>
+          {/* breadcrum */}
           <Box sx={{ fontSize: '13px', padding: '8px 0px', boxShadow: '1px 1px 2.5px #ded8f4', display: { xs: 'none', md: 'block', marginBottom: '30px' } }}>
             <span><Link to='/blogs' style={{ textDecoration: 'none', fontWeight: '600', color: 'black' }}>Blogs</Link></span><span style={{ padding: '0px 6px' }}>|</span><span dangerouslySetInnerHTML={{ __html: post.title.rendered }}></span>
           </Box>
           <Box sx={{ maxWidth: "1200px", display: 'flex', flexDirection: { xs: 'column', md: 'row' } }}>
+            {/* single post content */}
             <Box sx={{ width: { xs: '100%', md: '67%' } }}>
               <Typography sx={titleCss} dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
               <img src={post.yoast_head_json.og_image[0].url} alt="blogImage" />
@@ -100,10 +106,9 @@ export default function SinglePost(props) {
                 <Typography sx={{ padding: '0px 0px 0px 20px' }}>{post.yoast_head_json.schema['@graph'][4].description}</Typography>
               </Box>
             </Box>
-
-
-
+            {/* right Sidebar */}
             <Box sx={{ width: { xs: '100%', md: '33%' }, padding: { xs: '30px 0px 0px 0px', md: '12px 0px 0px 50px' } }}>
+              {/* popular post box */}
               <Box >
                 <Typography sx={{ backgroundColor: '#f5881f', padding: '8px 11px 10px 11px', color: '#fff', fontSize: '17px', fontWeight: '800', fontFamily: 'poppins' }}>Popular Posts</Typography>
                 {popularPost[0] ? (
@@ -122,6 +127,7 @@ export default function SinglePost(props) {
                 )
                   : 'loading'}
               </Box>
+              {/* Recent post box */}
               <Box sx={{ margin: '30px 0px' }}>
                 <Typography sx={{ backgroundColor: '#f5881f', padding: '8px 11px 10px 11px', color: '#fff', fontSize: '17px', fontWeight: '800', fontFamily: 'poppins' }}>Recent Posts</Typography>
                 {recentPost[0] ? (
@@ -140,6 +146,7 @@ export default function SinglePost(props) {
                 )
                   : 'loading'}
               </Box>
+              {/* newsletter box */}
               <Box sx={{ boxShadow: '0px 0px 6px #ccc', borderRadius: '4px', backgroundColor: '#ffffff', position: 'relative', paddingBottom: '10px' }} >
                 <img src={newsletterImage} alt='check' />
                 <Typography sx={{ fontSize: '18px', fontFamily: 'open sans', textAlign: 'center', fontWeight: '700', textTransform: 'uppercase', position: 'absolute', top: '50px', left: '50%', transform: 'translate(-50%)', color: '#ffffff', width: '280px' }}>Never Miss the Latest News</Typography>
@@ -155,11 +162,6 @@ export default function SinglePost(props) {
                 </Box>
               </Box>
             </Box>
-
-
-
-
-
 
           </Box>
         </Box>

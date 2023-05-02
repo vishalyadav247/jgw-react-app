@@ -10,7 +10,7 @@ import { Typography } from '@mui/material';
 
 
 export default function Shopify(props) {
-  const { data, categories } = props;
+  const { data, categories,recentPost } = props;
   const SectionTitleCss={
     fontSize:' 35px',
     fontFamily:' Poppins',
@@ -198,7 +198,7 @@ export default function Shopify(props) {
         titleSizeSm='28px'
         titleSizeLg='35px' />
 
-      <OurBlogs data={data} categories={categories}/>
+      <OurBlogs data={data} categories={categories} recentPosts={recentPost} />
 
     </>
   )

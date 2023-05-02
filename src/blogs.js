@@ -1,16 +1,24 @@
-import { Box, Typography, Divider, TextField, Button } from '@mui/material'
+import { Box, Typography, Divider, TextField, Button } from '@mui/material';
+import newsletterImage from './images/newslatterformimage.jpg';
+import { useEffect, useState } from 'react';
+import EmailIcon from './images/emailicon.png';
 import { Link } from "react-router-dom";
 import moment from 'moment';
-import { useEffect, useState } from 'react';
-import newsletterImage from './images/newslatterformimage.jpg';
-import EmailIcon from './images/emailicon.png'
+import ReactPaginate from 'react-paginate';
 
 export default function Blogs(props) {
   const { data, categories, popularPost } = props;
+  const [pageCount, setPageCount] = useState(1);
+  // recent blogs
   const [recentPost, setRecentPost] = useState([]);
-  const [ postFrom , setPostFrom ] = useState(0);
-  const [postTo , setPostTo ] = useState(8);
 
+  // try
+  const [postFrom, setPostFrom] = useState(0);
+  const [postTo, setPostTo] = useState(8);
+
+
+
+  // Recent post function
   useEffect(() => {
 
     function my() {
@@ -24,6 +32,17 @@ export default function Blogs(props) {
       });
       p1.then((value) => {
         setRecentPost(value)
+      })
+
+
+      const p2 = new Promise((resolve, reject) => {
+        const totalPosts = data.length;
+        const pages = Math.ceil(totalPosts / 8)
+        resolve(pages)
+      })
+      p2.then((value) => {
+        setPageCount(value)
+        console.log(value);
       })
 
     }
@@ -68,17 +87,48 @@ export default function Blogs(props) {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
   }
-  const blogPage1 = () => {
-    setPostFrom(0);
-    setPostTo(8)
-  }
-  const blogPage2 = () => {
-    setPostFrom(8);
-    setPostTo(16)
-  }
-  const blogPage3 = () => {
-    setPostFrom(16);
-    setPostTo(100)
+
+  const paginationfun = (event) => {
+    switch (event.selected) {
+      case 0:
+        setPostFrom(0);
+        setPostTo(8)
+        break;
+      case 1:
+        setPostFrom(8);
+        setPostTo(16)
+        break;
+      case 2:
+        setPostFrom(16);
+        setPostTo(24)
+        break;
+      case 3:
+        setPostFrom(24);
+        setPostTo(32)
+        break;
+      case 4:
+        setPostFrom(32);
+        setPostTo(40)
+        break;
+      case 5:
+        setPostFrom(40);
+        setPostTo(48)
+        break;
+      case 6:
+        setPostFrom(48);
+        setPostTo(56)
+        break;
+      case 7:
+        setPostFrom(56);
+        setPostTo(64)
+        break;
+      case 8:
+        setPostFrom(64);
+        setPostTo(72)
+        break;
+      default:
+        break;
+    }
   }
 
   return (
@@ -86,12 +136,13 @@ export default function Blogs(props) {
       <div style={{ backgroundColor: 'black', height: '84px', width: '100%', position: 'sticky', top: '0px' }}></div>
       {data[0] ? (
         <Box sx={{ backgroundColor: '#fffffff', padding: { xs: '50px 20px', md: '50px 30px', lg: '50px 0px' } }}>
+          {/* breadcrum */}
           <Box sx={{ maxWidth: "1200px", margin: "auto", fontSize: '13px', padding: '8px 0px', boxShadow: '1px 1px 2.5px #ded8f4', display: { xs: 'none', md: 'block', marginBottom: '42px' } }}>
             <span><Link to='/' style={{ textDecoration: 'none', fontWeight: '600', color: 'black' }}>Home</Link></span><span style={{ padding: '0px 6px' }}>|</span><span>Blogs</span>
           </Box>
 
           <Box sx={{ maxWidth: "1200px", margin: "auto", display: 'flex', flexDirection: { xs: 'column', md: 'row' } }}>
-
+            {/* blog content */}
             <Box className="blogsWrapper" sx={wrapperCss}>
               {data.slice(postFrom, postTo).map(post => (
                 <Box className="blogItem" sx={itemCss} key={post.id}>
@@ -112,6 +163,7 @@ export default function Blogs(props) {
                 </Box>
               ))}
             </Box>
+            {/* right sildebar */}
             <Box sx={{ width: { xs: '100%', md: '33%' }, padding: { xs: '30px 0px 0px 0px', md: '0px 0px 0px 50px' } }}>
               <Box >
                 <Typography sx={{ backgroundColor: '#f5881f', padding: '8px 11px 10px 11px', color: '#fff', fontSize: '17px', fontWeight: '800', fontFamily: 'poppins' }}>Popular Posts</Typography>
@@ -120,7 +172,7 @@ export default function Blogs(props) {
                     {
                       popularPost.map(post => (
                         <Box key={post.id} sx={{ backgroundColor: '#ebebf4', margin: '10px 0px', padding: '10px' }}>
-                          <Link to={`/posts/${post.id}`} style={{ color: '#000000', textDecoration: 'none' }} onClick={topScroll} >
+                          <Link to={`/posts/${post.slug}`} style={{ color: '#000000', textDecoration: 'none' }} onClick={topScroll} >
                             <Typography dangerouslySetInnerHTML={{ __html: post.title.rendered }} sx={{ fontFamily: 'open sans', fontWeight: '500' }} />
                           </Link>
                           <Typography sx={{ marginTop: '15px', fontFamily: 'open sans', color: '#5c5d66', fontSize: '14px' }}>{moment(post.date).format('MMMM Do , YYYY')}</Typography>
@@ -138,7 +190,7 @@ export default function Blogs(props) {
                     {
                       recentPost.map(post => (
                         <Box key={post.id} sx={{ backgroundColor: '#ebebf4', margin: '10px 0px', padding: '10px' }}>
-                          <Link to={`/posts/${post.id}`} style={{ color: '#000000', textDecoration: 'none' }} onClick={topScroll} >
+                          <Link to={`/posts/${post.slug}`} style={{ color: '#000000', textDecoration: 'none' }} onClick={topScroll} >
                             <Typography dangerouslySetInnerHTML={{ __html: post.title.rendered }} sx={{ fontFamily: 'open sans', fontWeight: '500' }} />
                           </Link>
                           <Typography sx={{ marginTop: '15px', fontFamily: 'open sans', color: '#5c5d66', fontSize: '14px' }}>{moment(post.date).format('MMMM Do , YYYY')}</Typography>
@@ -166,11 +218,21 @@ export default function Blogs(props) {
             </Box>
           </Box>
           <Box sx={{ maxWidth: "1200px", margin: "auto", marginTop: '50px' }}>
-            <Box sx={{width:'67%',display: 'flex', justifyContent: 'center'}}>
-              <Link to='#' style={{ margin: '0px 10px',textDecoration:'none',padding:'5px 15px',border:'1px solid black'}} onClick={blogPage1}>1</Link>
-              <Link to='#' style={{ margin: '0px 10px' ,textDecoration:'none',padding:'5px 15px',border:'1px solid black'}} onClick={blogPage2}>2</Link>
-              <Link to='#' style={{ margin: '0px 10px' ,textDecoration:'none',padding:'5px 15px',border:'1px solid black'}} onClick={blogPage3}>3</Link>
-            </Box>
+            {/* <Box sx={{ width: '67%', display: 'flex', justifyContent: 'center' }}>
+              <Link to='#' style={{ margin: '0px 10px', textDecoration: 'none', padding: '5px 15px', border: '1px solid black' }} onClick={blogPage1}>1</Link>
+              <Link to='#' style={{ margin: '0px 10px', textDecoration: 'none', padding: '5px 15px', border: '1px solid black' }} onClick={blogPage2}>2</Link>
+              <Link to='#' style={{ margin: '0px 10px', textDecoration: 'none', padding: '5px 15px', border: '1px solid black' }} onClick={blogPage3}>3</Link>
+            </Box> */}
+            <ReactPaginate
+              // breakLabel="..."
+              nextLabel=">"
+              onPageChange={paginationfun}
+              pageRangeDisplayed={2}
+              pageCount={pageCount}
+              previousLabel="<"
+              renderOnZeroPageCount={null}
+              marginPagesDisplayed={1}
+            />
           </Box>
 
         </Box>

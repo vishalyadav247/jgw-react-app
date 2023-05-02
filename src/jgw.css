@@ -36779,7 +36779,7 @@ body #main .rslt_top_part a {
 
 .overlay, .overlay-1, .overlay-2, .overlay-3, .overlay-4, .overlay-5 {
 	overflow: hidden;
-	webkit-transition: background 2s ease
+	webkit-transition: background 2s ease;
 }
 .fusion-read-more:after {
 	content: ''!important;
