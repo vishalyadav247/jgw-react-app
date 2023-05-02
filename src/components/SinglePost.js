@@ -46,7 +46,7 @@ export default function SinglePost(props) {
     function my() {
       const p1 = new Promise((resolve, reject) => {
         for (let i of data) {
-          if (postId.includes(i.id)) {
+          if (postId.includes(i.slug)) {
             const post = i;
             resolve(post)
           }
@@ -111,7 +111,7 @@ export default function SinglePost(props) {
                     {
                       popularPost.map(post => (
                         <Box key={post.id} sx={{ backgroundColor: '#ebebf4', margin: '10px 0px', padding: '10px' }}>
-                          <Link to={`/posts/${post.id}`} style={{ color: '#000000', textDecoration: 'none' }} onClick={topScroll} >
+                          <Link to={`/posts/${post.slug}`} style={{ color: '#000000', textDecoration: 'none' }} onClick={topScroll} >
                             <Typography dangerouslySetInnerHTML={{ __html: post.title.rendered }} sx={{ fontFamily: 'open sans', fontWeight: '500' }} />
                           </Link>
                           <Typography sx={{ marginTop: '15px', fontFamily: 'open sans', color: '#5c5d66', fontSize: '14px' }}>{moment(post.date).format('MMMM Do , YYYY')}</Typography>
@@ -129,7 +129,7 @@ export default function SinglePost(props) {
                     {
                       recentPost.map(post => (
                         <Box key={post.id} sx={{ backgroundColor: '#ebebf4', margin: '10px 0px', padding: '10px' }}>
-                          <Link to={`/posts/${post.id}`} style={{ color: '#000000', textDecoration: 'none' }} onClick={topScroll} >
+                          <Link to={`/posts/${post.slug}`} style={{ color: '#000000', textDecoration: 'none' }} onClick={topScroll} >
                             <Typography dangerouslySetInnerHTML={{ __html: post.title.rendered }} sx={{ fontFamily: 'open sans', fontWeight: '500' }} />
                           </Link>
                           <Typography sx={{ marginTop: '15px', fontFamily: 'open sans', color: '#5c5d66', fontSize: '14px' }}>{moment(post.date).format('MMMM Do , YYYY')}</Typography>

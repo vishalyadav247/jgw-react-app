@@ -1,3 +1,71 @@
-.seoPageContentRoot .fusion-fullwidth.fullwidth-box[data-bg="https://www.justgoweb.com/wp-content/uploads/2021/05/seo-super-hero-banner.jpg"]{
+.seoPageContentRoot .fusion-fullwidth.fullwidth-box[data-bg="https://www.justgoweb.com/wp-content/uploads/2021/05/seo-super-hero-banner.jpg"] {
     background-image: url('./images/seosuperherobanner.jpg');
+    margin-top: 0px !important;
 }
+.seoPageContentRoot p{
+    margin: 0px;
+}
+
+/*main seo page form css */
+.seoPageContentRoot .seofrom .elementor-form input {
+    border: 1px solid #ccc !important;
+    font-family: 'Open Sans' !important;
+    font-weight: 300 !important;
+    font-size: 16px !important;
+    margin-top: 5px;
+    height: 44px !important;
+    border-radius: 0px;
+    margin-right: 0;
+}
+
+.seoPageContentRoot .seofrom .elementor-form select {
+    border: 1px solid #ccc !important;
+    margin-top: 5px;
+    font-size: 13px;
+    font-family: 'Open Sans' !important;
+    font-weight: 300 !important;
+    height: 70px !important;
+    border-radius: 0px;
+}
+
+.seoPageContentRoot .seofrom .elementor-form select option,
+.seoPageContentRoot .seofrom .elementor-form input::placeholder {
+    font-family: 'Open Sans' !important;
+    font-weight: 300 !important;
+
+}
+
+.seoPageContentRoot .seofrom .elementor-form textarea {
+    border: 1px solid #ccc !important;
+    border-radius: 0px;
+    margin-right: 0;
+}
+
+.seoPageContentRoot .seofrom .elementor-form [type="checkbox"] {
+    height: inherit !important;
+}
+
+.seoPageContentRoot .elementor-field-option label {
+    color: #7a7a7a !important;
+    font-family: 'Open Sans' !important;
+    font-weight: 300 !important;
+}
+
+.seoPageContentRoot .seofrom .elementor-form button {
+    cursor: pointer;
+}
+
+.seoPageContentRoot .seofrom .elementor-form .elementor-field-option {
+    padding-bottom: 5px;
+}
+
+.seoPageContentRoot .seofrom .elementor-form [type="checkbox"] {
+    margin-top: 0;
+    margin-right: 5px;
+}
+
+.seoPageContentRoot .seofrom .elementor-form #form-field-selectform {
+    height: 44px !important;
+}
+
+/*main seo page form css end */

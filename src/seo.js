@@ -13,17 +13,18 @@ export default function Seo() {
 
         function my() {
             const p1 = new Promise((resolve, reject) => {
-                axios.get('https://www.justgoweb.com//wp-json/wp/v2/pages/10562').then((response) => {
+                axios.get('https://ind.justgoweb.com//wp-json/wp/v2/pages/144?acf_format=standard').then((response) => {
                     const posts = response.data;
+                    console.log(posts);
                     resolve(posts)
 
                 })
             }).then((value) => {
-                let check = value.content.rendered;
-                    check = check.replace(/src/g, " ");
-                    check = check.replace(/data-orig-/g, "src");
+                // let check = value.content.rendered;
+                // check = check.replace(/src/g, " ");
+                // check = check.replace(/data-orig-/g, "src");
+                // setPageContent(check)
                 setPageData(value);
-                setPageContent(check)
             })
         }
         my()
@@ -33,10 +34,18 @@ export default function Seo() {
         <Box>
             <div style={{ backgroundColor: 'black', height: '84px', width: '100%', position: 'sticky', top: '0px' }}></div>
             {pageData.id ? (
-                <Box>
+                <Box className='seoPageContentRoot'>
                     <Typography>{pageData.title.rendered}</Typography>
-                    <Box className='seoPageContentRoot' dangerouslySetInnerHTML={{ __html: pageContent }}></Box>
-                </Box>
+                    <Typography dangerouslySetInnerHTML={{ __html: pageData.content.rendered }}></Typography>
+                    <Box sx={{display:'grid',gridTemplateColumns:'1fr 1fr'}}>
+                        <img src={pageData.acf['image_upload']} style={{width:'auto',height:'auto'}}/>
+                        <p dangerouslySetInnerHTML={{ __html: pageData.acf['content'] }}></p>
+                    </Box>
+                    <Box sx={{display:'grid',gridTemplateColumns:'1fr 1fr',marginTop:'50px'}}>
+                        <p dangerouslySetInnerHTML={{ __html: pageData.acf['content_left'] }}></p>
+                        <img src={pageData.acf['image_upload_right']} style={{width:'auto',height:'auto'}}/>
+                    </Box>
+            </Box>
 
 
 

@@ -89,7 +89,7 @@ export default function OurBlogs(props) {
                                     <span>categories : {categories[post.categories[0]]} {post.categories[1] ? ", " + categories[post.categories[1]] : ""}</span>
                                 </Typography>
                                 <Button variant="contained" sx={BlogCardReadMoreBtn} onClick={topScroll} >
-                                    <Link to={`/posts/${post.id}`} style={{ color: '#ffffff', textDecoration: 'none',padding:'10px 20px' }}>Read More
+                                    <Link to={`/posts/${post.slug}`} style={{ color: '#ffffff', textDecoration: 'none',padding:'10px 20px' }}>Read More
                                     </Link>
                                 </Button>
                             </Box>

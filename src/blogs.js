@@ -8,6 +8,8 @@ import EmailIcon from './images/emailicon.png'
 export default function Blogs(props) {
   const { data, categories, popularPost } = props;
   const [recentPost, setRecentPost] = useState([]);
+  const [ postFrom , setPostFrom ] = useState(0);
+  const [postTo , setPostTo ] = useState(8);
 
   useEffect(() => {
 
@@ -66,6 +68,18 @@ export default function Blogs(props) {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
   }
+  const blogPage1 = () => {
+    setPostFrom(0);
+    setPostTo(8)
+  }
+  const blogPage2 = () => {
+    setPostFrom(8);
+    setPostTo(16)
+  }
+  const blogPage3 = () => {
+    setPostFrom(16);
+    setPostTo(100)
+  }
 
   return (
     <>
@@ -79,13 +93,13 @@ export default function Blogs(props) {
           <Box sx={{ maxWidth: "1200px", margin: "auto", display: 'flex', flexDirection: { xs: 'column', md: 'row' } }}>
 
             <Box className="blogsWrapper" sx={wrapperCss}>
-              {data.map(post => (
+              {data.slice(postFrom, postTo).map(post => (
                 <Box className="blogItem" sx={itemCss} key={post.id}>
                   <Box className='blogImageWrapper'>
                     <img src={post.yoast_head_json.og_image[0].url} alt="blogImage" />
                   </Box>
                   <Box className='blogContent' sx={{ backgroundColor: "rgba(0,67,139,1)", padding: "32px 25px 32px 25px", marginTop: "-6px" }}>
-                    <Link to={`/posts/${post.id}`} style={{ color: '#ffffff', textDecoration: 'none' }}>
+                    <Link to={`/posts/${post.slug}`} style={{ color: '#ffffff', textDecoration: 'none' }}>
                       <Typography className='blogTitle' sx={BlogTitle} dangerouslySetInnerHTML={{ __html: post.title.rendered }} onClick={topScroll} />
                     </Link>
                     <Divider sx={{ width: "100%", height: "1px", backgroundColor: "white", margin: "15px 0px" }} />
@@ -153,9 +167,9 @@ export default function Blogs(props) {
           </Box>
           <Box sx={{ maxWidth: "1200px", margin: "auto", marginTop: '50px' }}>
             <Box sx={{width:'67%',display: 'flex', justifyContent: 'center'}}>
-              <Link to='#' style={{ margin: '0px 10px',textDecoration:'none',padding:'5px 15px',border:'1px solid black'}}>1</Link>
-              <Link to='#' style={{ margin: '0px 10px' ,textDecoration:'none',padding:'5px 15px',border:'1px solid black'}}>2</Link>
-              <Link to='#' style={{ margin: '0px 10px' ,textDecoration:'none',padding:'5px 15px',border:'1px solid black'}}>3</Link>
+              <Link to='#' style={{ margin: '0px 10px',textDecoration:'none',padding:'5px 15px',border:'1px solid black'}} onClick={blogPage1}>1</Link>
+              <Link to='#' style={{ margin: '0px 10px' ,textDecoration:'none',padding:'5px 15px',border:'1px solid black'}} onClick={blogPage2}>2</Link>
+              <Link to='#' style={{ margin: '0px 10px' ,textDecoration:'none',padding:'5px 15px',border:'1px solid black'}} onClick={blogPage3}>3</Link>
             </Box>
           </Box>
 
