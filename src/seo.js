@@ -7,6 +7,7 @@ export default function Seo() {
 
 
     const [pageData, setPageData] = useState({});
+    const [pageContent, setPageContent] = useState({})
 
     useEffect(() => {
 
@@ -14,15 +15,15 @@ export default function Seo() {
             const p1 = new Promise((resolve, reject) => {
                 axios.get('https://www.justgoweb.com//wp-json/wp/v2/pages/10562').then((response) => {
                     const posts = response.data;
-                    // let check = posts.content.rendered;
-                    // check = check.replace(/src/g, " ");
-                    // check = check.replace(/data-orig-/g, "src");
                     resolve(posts)
 
                 })
             }).then((value) => {
-
-                setPageData(value)
+                let check = value.content.rendered;
+                    check = check.replace(/src/g, " ");
+                    check = check.replace(/data-orig-/g, "src");
+                setPageData(value);
+                setPageContent(check)
             })
         }
         my()
@@ -34,7 +35,7 @@ export default function Seo() {
             {pageData.id ? (
                 <Box>
                     <Typography>{pageData.title.rendered}</Typography>
-                    <Box className='seoPageContentRoot' dangerouslySetInnerHTML={{ __html: pageData.content.rendered }}></Box>
+                    <Box className='seoPageContentRoot' dangerouslySetInnerHTML={{ __html: pageContent }}></Box>
                 </Box>
 
 
