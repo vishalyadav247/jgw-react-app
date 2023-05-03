@@ -15,12 +15,12 @@ export default function Blogs(props) {
   // try
   const [postFrom, setPostFrom] = useState(0);
   const [postTo, setPostTo] = useState(8);
+  var noOfPost = 8;
 
 
 
   // Recent post function
   useEffect(() => {
-
     function my() {
       const p1 = new Promise((resolve, reject) => {
         const postArray = []
@@ -37,18 +37,25 @@ export default function Blogs(props) {
 
       const p2 = new Promise((resolve, reject) => {
         const totalPosts = data.length;
-        const pages = Math.ceil(totalPosts / 8)
+        const pages = Math.ceil(totalPosts / noOfPost)
         resolve(pages)
       })
       p2.then((value) => {
         setPageCount(value)
-        console.log(value);
       })
 
     }
     my()
 
   }, [data])
+
+
+  const paginationfun = (event) => {
+console.log(event);
+let digit=event.selected+1;
+    setPostFrom(digit*noOfPost-noOfPost);
+    setPostTo(digit*noOfPost)
+}
 
   const wrapperCss = {
     display: "grid",
@@ -88,48 +95,7 @@ export default function Blogs(props) {
     document.documentElement.scrollTop = 0;
   }
 
-  const paginationfun = (event) => {
-    switch (event.selected) {
-      case 0:
-        setPostFrom(0);
-        setPostTo(8)
-        break;
-      case 1:
-        setPostFrom(8);
-        setPostTo(16)
-        break;
-      case 2:
-        setPostFrom(16);
-        setPostTo(24)
-        break;
-      case 3:
-        setPostFrom(24);
-        setPostTo(32)
-        break;
-      case 4:
-        setPostFrom(32);
-        setPostTo(40)
-        break;
-      case 5:
-        setPostFrom(40);
-        setPostTo(48)
-        break;
-      case 6:
-        setPostFrom(48);
-        setPostTo(56)
-        break;
-      case 7:
-        setPostFrom(56);
-        setPostTo(64)
-        break;
-      case 8:
-        setPostFrom(64);
-        setPostTo(72)
-        break;
-      default:
-        break;
-    }
-  }
+  
 
   return (
     <>
