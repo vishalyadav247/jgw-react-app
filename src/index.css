@@ -4,10 +4,43 @@
 /* .newsletterEmailInput #letternewsBtn:hover{
   background-color: #f5881f;
 } */
+
 .pageRoot{
   display:flex;
 }
-
+ul[role="navigation"]{
+  display: flex;
+  list-style-type: none;
+  padding-left:0px ;
+  align-items: center;
+}
+ul[role="navigation"] li{
+  margin:0px 10px;
+  padding:5px 0px;
+  text-decoration:none;
+  border:1px solid black;
+  cursor: pointer;
+}
+ul[role="navigation"] li a{
+  padding:5px 15px;
+  font-weight: 700;
+}
+ul[role="navigation"] li.break{
+  border:0px solid black;
+}
+ul[role="navigation"] li.selected{
+  border:1px solid #6095ff;
+  background-color: #769ff0;
+}
+ul[role="navigation"] li:first-child,
+ul[role="navigation"] li:last-child{
+  border:0px solid rgb(0, 0, 0);
+}
+ul[role="navigation"] li:first-child a,
+ul[role="navigation"] li:last-child a{
+  padding:0px;
+  margin-top: 0px;
+}
 
 .newsletterEmailInput label{
   padding: 0px 20px;

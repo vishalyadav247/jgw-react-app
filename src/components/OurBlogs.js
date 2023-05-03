@@ -3,14 +3,16 @@ import Box from '@mui/material/Box';
 import { Button, Divider, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
 import moment from 'moment';
-import { Link } from "react-router-dom";
+import { Link , useParams} from "react-router-dom";
 
 
 
 
 export default function OurBlogs(props) {
     const { data, categories } = props;
-    const [recentPost, setRecentPost] = useState([])
+    const [recentPost, setRecentPost] = useState([]);
+    const { category } = useParams();
+    console.log(category);
 
     useEffect(() => {
 
@@ -26,6 +28,23 @@ export default function OurBlogs(props) {
             p1.then((value) => {
                 setRecentPost(value)
             })
+        }
+        my()
+
+    }, [data])
+
+    useEffect(() => {
+
+        function my() {
+            for(let i in data){
+                console.log(categories);
+                console.log(data[i].categories);
+                for(let j in data[i].categories){
+                        if(j === categories){
+                            console.log(i);
+                        }
+                    }
+            }
         }
         my()
 
@@ -66,6 +85,13 @@ export default function OurBlogs(props) {
         textTransform: "capitalize" ,
         padding:'0px'
        }
+       const categoriesLinkCss = {
+        color: '#ffffffa5', 
+        fontSize: '12px', 
+        fontFamily: 'open sans',
+        textDecoration:'none'
+    }
+
     const topScroll = () => {
         document.body.scrollTop = 0;
         document.documentElement.scrollTop = 0;
@@ -86,7 +112,11 @@ export default function OurBlogs(props) {
                                 <Typography sx={{ color: '#ffffff', fontSize: '12px', fontFamily: 'open sans' }}>
                                     <span>By {post.yoast_head_json.schema['@graph'][4].name}</span>
                                     <span style={MiddleSpan}>{moment(post.date).format('MMMM Do , YYYY')}</span>
-                                    <span>categories : {categories[post.categories[0]]} {post.categories[1] ? ", " + categories[post.categories[1]] : ""}</span>
+                                    <span style={{display:'block'}}> categories :&nbsp;
+                                        <Link to={`/category/${categories[post.categories[0]]}`} style={categoriesLinkCss}>{categories[post.categories[0]]}</Link>
+                                        <Link to='#' style={categoriesLinkCss}>{post.categories[1] ? ", " + categories[post.categories[1]] : ""}</Link>
+                                        <Link to='#' style={categoriesLinkCss}>{post.categories[2] ? ", " + categories[post.categories[2]] : ""}</Link>
+                                    </span>
                                 </Typography>
                                 <Button variant="contained" sx={BlogCardReadMoreBtn} onClick={topScroll} >
                                     <Link to={`/posts/${post.slug}`} style={{ color: '#ffffff', textDecoration: 'none',padding:'10px 20px' }}>Read More

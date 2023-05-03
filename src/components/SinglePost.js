@@ -10,10 +10,16 @@ import EmailIcon from '../images/emailicon.png';
 export default function SinglePost(props) {
 
   const { data, categories, popularPost } = props;
+
   // import slug from path 
   const { slug } = useParams();
+
   // single post data
   const [post, setPost] = useState({});
+
+  // single post content
+  const [singlePostContent, setSinglePostContent] = useState({});
+
   // recentpost data
   const [recentPost, setRecentPost] = useState([])
 
@@ -35,13 +41,17 @@ export default function SinglePost(props) {
         }
       });
       p1.then((value) => {
-        setPost(value)
+        let check = value.content.rendered;
+        check = check.replace(/src/g, " ");
+        check = check.replace(/data-orig-/g, "src");
+        setPost(value);
+        setSinglePostContent(check)
       })
 
     }
     my()
 
-  }, [slug])
+  }, [slug,data])
 
   // Recent post function
   useEffect(() => {
@@ -95,7 +105,7 @@ export default function SinglePost(props) {
             <Box sx={{ width: { xs: '100%', md: '67%' } }}>
               <Typography sx={titleCss} dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
               <img src={post.yoast_head_json.og_image[0].url} alt="blogImage" />
-              <Typography sx={{ fontFamily: "open sans", fontSize: '17px' }} dangerouslySetInnerHTML={{ __html: post.content.rendered }} />
+              <Typography sx={{ fontFamily: "open sans", fontSize: '17px' }} dangerouslySetInnerHTML={{ __html: singlePostContent }} />
               <Typography sx={{ margin: '70px 0px 20px 0px', borderBottom: '1px solid rgb(252, 176, 64)', borderTop: '1px solid rgb(252, 176, 64)', padding: '10px 0px' }}>
                 <span>{moment(post.date).format('MMMM Do , YYYY')}</span>
                 <span> | {categories[post.categories[0]]} {post.categories[1] ? ", " + categories[post.categories[1]] : ""}</span>

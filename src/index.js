@@ -43,6 +43,7 @@ const App = () => {
           for (let b of cat) {
             catList[b.id] = b.name;
           }
+          console.log(catList);
           resolve(catList)
         })
       })
@@ -90,7 +91,6 @@ const App = () => {
       const p1 = new Promise((resolve, reject) => {
         axios.get('https://www.justgoweb.com//wp-json/wp/v2/pages/10562').then((response) => {
           const posts = response.data;
-          console.log(posts);
           resolve(posts)
 
         })
@@ -121,6 +121,7 @@ const App = () => {
 
           {/* blog detail page route */}
           <Route path="/posts/:slug" element={<SinglePost data={data} categories={categories} popularPost={popularPost} />} />
+          <Route path="/category/:category" element={<SinglePost data={data} categories={categories} popularPost={popularPost} />} />
         </Routes>
         <AppFooter />
       </BrowserRouter>

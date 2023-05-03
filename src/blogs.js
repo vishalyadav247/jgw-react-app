@@ -5,19 +5,23 @@ import EmailIcon from './images/emailicon.png';
 import { Link } from "react-router-dom";
 import moment from 'moment';
 import ReactPaginate from 'react-paginate';
+import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
+import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 
 export default function Blogs(props) {
+
   const { data, categories, popularPost } = props;
   const [pageCount, setPageCount] = useState(1);
+
   // recent blogs
   const [recentPost, setRecentPost] = useState([]);
 
-  // try
+  // blogs slice parameter to show in pagination
   const [postFrom, setPostFrom] = useState(0);
   const [postTo, setPostTo] = useState(8);
+
+  // No. of blogs to be shown in a page
   var noOfPost = 8;
-
-
 
   // Recent post function
   useEffect(() => {
@@ -51,11 +55,11 @@ export default function Blogs(props) {
 
 
   const paginationfun = (event) => {
-console.log(event);
-let digit=event.selected+1;
-    setPostFrom(digit*noOfPost-noOfPost);
-    setPostTo(digit*noOfPost)
-}
+    topScroll()
+    let digit = event.selected + 1;
+    setPostFrom(digit * noOfPost - noOfPost);
+    setPostTo(digit * noOfPost)
+  }
 
   const wrapperCss = {
     display: "grid",
@@ -95,7 +99,7 @@ let digit=event.selected+1;
     document.documentElement.scrollTop = 0;
   }
 
-  
+
 
   return (
     <>
@@ -184,18 +188,13 @@ let digit=event.selected+1;
             </Box>
           </Box>
           <Box sx={{ maxWidth: "1200px", margin: "auto", marginTop: '50px' }}>
-            {/* <Box sx={{ width: '67%', display: 'flex', justifyContent: 'center' }}>
-              <Link to='#' style={{ margin: '0px 10px', textDecoration: 'none', padding: '5px 15px', border: '1px solid black' }} onClick={blogPage1}>1</Link>
-              <Link to='#' style={{ margin: '0px 10px', textDecoration: 'none', padding: '5px 15px', border: '1px solid black' }} onClick={blogPage2}>2</Link>
-              <Link to='#' style={{ margin: '0px 10px', textDecoration: 'none', padding: '5px 15px', border: '1px solid black' }} onClick={blogPage3}>3</Link>
-            </Box> */}
             <ReactPaginate
-              // breakLabel="..."
-              nextLabel=">"
+              breakLabel="..."
+              nextLabel={<ArrowRightIcon sx={{marginTop:'6px'}} fontSize='large'/>}
               onPageChange={paginationfun}
               pageRangeDisplayed={2}
               pageCount={pageCount}
-              previousLabel="<"
+              previousLabel={<ArrowLeftIcon sx={{marginTop:'6px'}} fontSize='large' />}
               renderOnZeroPageCount={null}
               marginPagesDisplayed={1}
             />
