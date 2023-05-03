@@ -16,6 +16,7 @@ import Seo from './seo';
 import SinglePost from './components/SinglePost';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import CategoryTemplate from './categoryTemplate';
 
 const App = () => {
   const [data, setData] = useState([]);   // All blogs data 
@@ -43,7 +44,7 @@ const App = () => {
           for (let b of cat) {
             catList[b.id] = b.name;
           }
-          console.log(catList);
+          // console.log(catList);
           resolve(catList)
         })
       })
@@ -94,7 +95,8 @@ const App = () => {
           resolve(posts)
 
         })
-      }).then((value) => {
+      })
+      p1.then((value) => {
         let check = value.content.rendered;
         check = check.replace(/src/g, " ");
         check = check.replace(/data-orig-/g, "src");
@@ -121,7 +123,8 @@ const App = () => {
 
           {/* blog detail page route */}
           <Route path="/posts/:slug" element={<SinglePost data={data} categories={categories} popularPost={popularPost} />} />
-          <Route path="/category/:category" element={<SinglePost data={data} categories={categories} popularPost={popularPost} />} />
+          <Route path="/categories/:categoryName" element={<CategoryTemplate data={data} categories={categories} popularPost={popularPost} />} />
+
         </Routes>
         <AppFooter />
       </BrowserRouter>

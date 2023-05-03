@@ -11,6 +11,7 @@ import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 export default function Blogs(props) {
 
   const { data, categories, popularPost } = props;
+  const [pageData, setPageData] = useState([]);
   const [pageCount, setPageCount] = useState(1);
 
   // recent blogs
@@ -23,9 +24,9 @@ export default function Blogs(props) {
   // No. of blogs to be shown in a page
   var noOfPost = 8;
 
-  // Recent post function
   useEffect(() => {
     function my() {
+
       const p1 = new Promise((resolve, reject) => {
         const postArray = []
         for (let i = 0; i < 3; i++) {
@@ -34,25 +35,27 @@ export default function Blogs(props) {
         }
         resolve(postArray)
       });
-      p1.then((value) => {
-        setRecentPost(value)
-      })
-
 
       const p2 = new Promise((resolve, reject) => {
         const totalPosts = data.length;
         const pages = Math.ceil(totalPosts / noOfPost)
         resolve(pages)
       })
-      p2.then((value) => {
-        setPageCount(value)
+     
+      const p3 = new Promise((resolve, reject) => {
+        const pdata = data;
+        resolve(pdata)
       })
 
+      Promise.all([p1, p2, p3]).then((values) => {
+        setRecentPost(values[0]);
+        setPageCount(values[1]);
+        setPageData(values[2]);
+      });
     }
     my()
 
-  }, [data])
-
+  }, [setPageData,recentPost])
 
   const paginationfun = (event) => {
     topScroll()
@@ -114,7 +117,7 @@ export default function Blogs(props) {
           <Box sx={{ maxWidth: "1200px", margin: "auto", display: 'flex', flexDirection: { xs: 'column', md: 'row' } }}>
             {/* blog content */}
             <Box className="blogsWrapper" sx={wrapperCss}>
-              {data.slice(postFrom, postTo).map(post => (
+              {pageData.slice(postFrom, postTo).map(post => (
                 <Box className="blogItem" sx={itemCss} key={post.id}>
                   <Box className='blogImageWrapper'>
                     <img src={post.yoast_head_json.og_image[0].url} alt="blogImage" />
@@ -190,11 +193,11 @@ export default function Blogs(props) {
           <Box sx={{ maxWidth: "1200px", margin: "auto", marginTop: '50px' }}>
             <ReactPaginate
               breakLabel="..."
-              nextLabel={<ArrowRightIcon sx={{marginTop:'6px'}} fontSize='large'/>}
+              nextLabel={<ArrowRightIcon sx={{ marginTop: '6px' }} fontSize='large' />}
               onPageChange={paginationfun}
               pageRangeDisplayed={2}
               pageCount={pageCount}
-              previousLabel={<ArrowLeftIcon sx={{marginTop:'6px'}} fontSize='large' />}
+              previousLabel={<ArrowLeftIcon sx={{ marginTop: '6px' }} fontSize='large' />}
               renderOnZeroPageCount={null}
               marginPagesDisplayed={1}
             />
