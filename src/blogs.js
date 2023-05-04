@@ -11,7 +11,7 @@ import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 export default function Blogs(props) {
 
   const { data, categories, popularPost } = props;
-  const [pageData, setPageData] = useState([]);
+  // const [pageData, setPageData] = useState([]);
   const [pageCount, setPageCount] = useState(1);
 
   // recent blogs
@@ -23,10 +23,11 @@ export default function Blogs(props) {
 
   // No. of blogs to be shown in a page
   var noOfPost = 8;
+  let c='abc'
 
   useEffect(() => {
     function my() {
-
+      // recent post
       const p1 = new Promise((resolve, reject) => {
         const postArray = []
         for (let i = 0; i < 3; i++) {
@@ -34,28 +35,26 @@ export default function Blogs(props) {
           postArray.push(post)
         }
         resolve(postArray)
-      });
-
-      const p2 = new Promise((resolve, reject) => {
-        const totalPosts = data.length;
-        const pages = Math.ceil(totalPosts / noOfPost)
-        resolve(pages)
       })
-     
-      const p3 = new Promise((resolve, reject) => {
-        const pdata = data;
-        resolve(pdata)
+      p1.then((value) => {
+        setRecentPost(value);
       })
-
-      Promise.all([p1, p2, p3]).then((values) => {
-        setRecentPost(values[0]);
-        setPageCount(values[1]);
-        setPageData(values[2]);
-      });
     }
     my()
 
-  }, [setPageData,recentPost])
+  }, [data])
+
+  useEffect(() => {
+    const p3 = new Promise((resolve, reject) => {
+      const totalPosts = data.length;
+      const pages = Math.ceil(totalPosts / noOfPost)
+      resolve(pages)
+    });
+    p3.then((value) => {
+      setPageCount(value)
+    })
+
+  }, [])
 
   const paginationfun = (event) => {
     topScroll()
@@ -101,8 +100,12 @@ export default function Blogs(props) {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
   }
-
-
+  const categoriesLinkCss = {
+    color: '#ffffffa5',
+    fontSize: '12px',
+    fontFamily: 'open sans',
+    textDecoration: 'none'
+}
 
   return (
     <>
@@ -113,11 +116,10 @@ export default function Blogs(props) {
           <Box sx={{ maxWidth: "1200px", margin: "auto", fontSize: '13px', padding: '8px 0px', boxShadow: '1px 1px 2.5px #ded8f4', display: { xs: 'none', md: 'block', marginBottom: '42px' } }}>
             <span><Link to='/' style={{ textDecoration: 'none', fontWeight: '600', color: 'black' }}>Home</Link></span><span style={{ padding: '0px 6px' }}>|</span><span>Blogs</span>
           </Box>
-
           <Box sx={{ maxWidth: "1200px", margin: "auto", display: 'flex', flexDirection: { xs: 'column', md: 'row' } }}>
             {/* blog content */}
             <Box className="blogsWrapper" sx={wrapperCss}>
-              {pageData.slice(postFrom, postTo).map(post => (
+              {data.slice(postFrom, postTo).map(post => (
                 <Box className="blogItem" sx={itemCss} key={post.id}>
                   <Box className='blogImageWrapper'>
                     <img src={post.yoast_head_json.og_image[0].url} alt="blogImage" />
@@ -130,7 +132,11 @@ export default function Blogs(props) {
                     <Typography sx={{ color: '#ffffff', fontSize: '12px', fontFamily: 'open sans' }}>
                       <span>By {post.yoast_head_json.twitter_misc['Written by']}</span>
                       <span style={MiddleSpan}>{moment(post.date).format('MMMM Do , YYYY')}</span>
-                      <span>categories : {categories[post.categories[0]]} {post.categories[1] ? ", " + categories[post.categories[1]] : ""}</span>
+                      <span style={{ display: 'block' }}> categories :&nbsp;
+                        <Link to={`/categories/${categories[post.categories[0]]}`} style={categoriesLinkCss} onClick={topScroll}>{categories[post.categories[0]]}</Link>
+                        <Link to={`/categories/${categories[post.categories[1]]}`} style={categoriesLinkCss} onClick={topScroll}>{post.categories[1] ? ", " + categories[post.categories[1]] : ""}</Link>
+                        <Link to={`/categories/${categories[post.categories[2]]}`} style={categoriesLinkCss} onClick={topScroll}>{post.categories[2] ? ", " + categories[post.categories[2]] : ""}</Link>
+                      </span>
                     </Typography>
                   </Box>
                 </Box>

@@ -100,9 +100,9 @@ export default function OurBlogs(props) {
                                     <span>By {post.yoast_head_json.schema['@graph'][4].name}</span>
                                     <span style={MiddleSpan}>{moment(post.date).format('MMMM Do , YYYY')}</span>
                                     <span style={{ display: 'block' }}> categories :&nbsp;
-                                        <Link to={`/categories/${categories[post.categories[0]]}`} style={categoriesLinkCss} >{categories[post.categories[0]]}</Link>
-                                        <Link to='#' style={categoriesLinkCss}>{post.categories[1] ? ", " + categories[post.categories[1]] : ""}</Link>
-                                        <Link to='#' style={categoriesLinkCss}>{post.categories[2] ? ", " + categories[post.categories[2]] : ""}</Link>
+                                        <Link to={`/categories/${categories[post.categories[0]]}`} style={categoriesLinkCss} onClick={topScroll}>{categories[post.categories[0]]}</Link>
+                                        <Link to={`/categories/${categories[post.categories[1]]}`} style={categoriesLinkCss} onClick={topScroll}>{post.categories[1] ? ", " + categories[post.categories[1]] : ""}</Link>
+                                        <Link to={`/categories/${categories[post.categories[2]]}`} style={categoriesLinkCss} onClick={topScroll}>{post.categories[2] ? ", " + categories[post.categories[2]] : ""}</Link>
                                     </span>
                                 </Typography>
                                 <Button variant="contained" sx={BlogCardReadMoreBtn} onClick={topScroll} >

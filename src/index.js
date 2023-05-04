@@ -82,6 +82,7 @@ const App = () => {
       });
     }
     my()
+
   }, [])
 
   // seo page data
@@ -106,6 +107,7 @@ const App = () => {
     }
     my()
   }, [])
+  
 
 
   return (
