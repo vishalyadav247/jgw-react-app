@@ -39,14 +39,21 @@ export default function Contact() {
   const submitHandler = (event)=>{
     event.preventDefault();
     const config = {
-      SecureToken : "6eaab63f-6a52-4059-a5ae-9acd3bfb8580",
-      From : 'vishal@justgoweb.com',
-      To : 'vishal@justgoweb.com',
-      Subject : "This is the subject",
-      Body : `${formState.name} from ${formState.email}`
+      SecureToken : "b89b0af5-80f9-4388-9f9f-77c197474d2e",
+      To : "vishal.kvs@outlook.com",
+      From : "vishal.kvs@outlook.com",
+      Subject : "JGW Contact form",
+      Body:`From ${formState.name} <br>
+            Email ID : ${formState.email} <br> 
+            Phone    : ${formState.phone} <br><br><br>
+            <div style='border:1px dotted black;padding:25px;'>
+              Message : ${formState.message}
+            </div>`
     };
     if(window.Email){
-      window.Email.send(config).then((message)=> alert(message))
+      window.Email.send(config).then((message)=> alert(message)).then(()=>{
+        setFormState({})
+      })
     }
 
   }
@@ -61,7 +68,7 @@ export default function Contact() {
       </Box>
       <Box sx={contactWrapperCss}>
         <Typography sx={formHeadingCss}>CONTACT US</Typography>
-        <form sx={contactFormCss} onSubmit={submitHandler} >
+        <form style={contactFormCss} onSubmit={submitHandler} >
           <Typography sx={formInnerHeadingCss}>Tell us a bit about yourself</Typography>
           <Box sx={{ margin: '20px 0px', display: 'grid' }} className='contactUpperInputWrapper'>
             <TextField id="filled-basic" label="Full Name" variant="filled" name='name' onChange={changeHandler} value={formState.name || ''}/>
@@ -75,9 +82,6 @@ export default function Contact() {
             <Button type='submit' variant="contained" sx={{marginTop:'50px',borderRadius:'23px',height:'45px',fontSize:'16px'}}>Submit</Button>
           </Box>
         </form>
-        <Box>
-          {formState.name}
-        </Box>
       </Box> 
     </>
   )
