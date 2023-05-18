@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import Box from '@mui/material/Box'
 import HomeBanner from './components/HomeBanner';
 import contactBanner from './images/banner2.jpg'
@@ -31,6 +31,25 @@ export default function Contact() {
     color: '#474747',
     fontFamily: 'poppins'
   }
+  const [formState,setFormState] = useState({});
+  const changeHandler = (event)=>{
+    setFormState({...formState,[event.target.name]:event.target.value})
+  }
+ 
+  const submitHandler = (event)=>{
+    event.preventDefault();
+    const config = {
+      SecureToken : "6eaab63f-6a52-4059-a5ae-9acd3bfb8580",
+      From : 'vishal@justgoweb.com',
+      To : 'vishal@justgoweb.com',
+      Subject : "This is the subject",
+      Body : `${formState.name} from ${formState.email}`
+    };
+    if(window.Email){
+      window.Email.send(config).then((message)=> alert(message))
+    }
+
+  }
   return (
     <>
       <Box>
@@ -42,21 +61,24 @@ export default function Contact() {
       </Box>
       <Box sx={contactWrapperCss}>
         <Typography sx={formHeadingCss}>CONTACT US</Typography>
-        <Box sx={contactFormCss}>
+        <form sx={contactFormCss} onSubmit={submitHandler} >
           <Typography sx={formInnerHeadingCss}>Tell us a bit about yourself</Typography>
           <Box sx={{ margin: '20px 0px', display: 'grid' }} className='contactUpperInputWrapper'>
-            <TextField id="filled-basic" label="Full Name" variant="filled" />
-            <TextField id="filled-basic" label="Email Address" variant="filled" />
-            <TextField id="filled-basic" label="Phone Number" variant="filled" />
-            <TextField id="filled-basic" label="My Website" variant="filled" />
+            <TextField id="filled-basic" label="Full Name" variant="filled" name='name' onChange={changeHandler} value={formState.name || ''}/>
+            <TextField id="filled-basic" label="Email Address" variant="filled" name='email' onChange={changeHandler} value={formState.email || ''}/>
+            <TextField id="filled-basic" label="Phone Number" variant="filled" name='phone' onChange={changeHandler} value={formState.phone || ''}/>
+            <TextField id="filled-basic" label="My Website" variant="filled" name='website' onChange={changeHandler} value={formState.website || ''}/>
           </Box>
           <Typography sx={formInnerHeadingCss}>What can we help you with</Typography>
           <Box sx={{ margin: '20px 0px 50px 0px', display: 'grid' }} className='contactLowerInputWrapper'>
-            <TextField id="filled-basic" label="I am enquiring about.." variant="filled" sx={{height:'100px'}}/>
-            <Button variant="contained" sx={{marginTop:'50px',borderRadius:'23px',height:'45px',fontSize:'16px'}}>Submit</Button>
+            <TextField id="filled-basic" label="I am enquiring about.." variant="filled" sx={{height:'100px'}} name='message' onChange={changeHandler} value={formState.message || ''}/>
+            <Button type='submit' variant="contained" sx={{marginTop:'50px',borderRadius:'23px',height:'45px',fontSize:'16px'}}>Submit</Button>
           </Box>
+        </form>
+        <Box>
+          {formState.name}
         </Box>
-      </Box>
+      </Box> 
     </>
   )
 }
