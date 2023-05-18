@@ -1172,8 +1172,7 @@ body .portfolio-grid {
 }
 
 @font-face {
-    font-family: ;
-    src: ;
+
     font-weight: normal;
     font-style: normal;
     font-display: block;
@@ -1453,7 +1452,6 @@ body:not(.fusion-header-layout-v6) .fusion-is-sticky .fusion-main-menu>ul>li>a {
 }
 
 html:not(.avada-header-color-not-opaque) .avada-has-header-bg-image .fusion-header,html:not(.avada-header-color-not-opaque) .avada-has-header-bg-image .side-header-background-image,html:not(.avada-html-header-position-top) .avada-has-header-bg-image .fusion-header,html:not(.avada-html-header-position-top) .avada-has-header-bg-image .side-header-background-image {
-    background-image: ;
     background-repeat: no-repeat
 }
 
@@ -1476,9 +1474,9 @@ html:not(.avada-header-color-not-opaque) .avada-has-header-bg-image.fusion-heade
     background-color: transparent
 }
 
-html:not(.avada-header-color-not-opaque) .avada-has-header-bg-image.fusion-header-layout-v2.fusion-top-header.avada-header-top-bg-not-opaque .fusion-header-wrapper,html:not(.avada-header-color-not-opaque) .avada-has-header-bg-image.fusion-header-layout-v2.fusion-top-header.avada-header-top-bg-not-opaque .fusion-is-sticky .fusion-header,html:not(.avada-header-color-not-opaque) .avada-has-header-bg-image.fusion-header-layout-v3.fusion-top-header.avada-header-top-bg-not-opaque .fusion-header-wrapper,html:not(.avada-header-color-not-opaque) .avada-has-header-bg-image.fusion-header-layout-v3.fusion-top-header.avada-header-top-bg-not-opaque .fusion-is-sticky .fusion-header,html:not(.avada-html-header-position-top) .avada-has-header-bg-image.fusion-header-layout-v2.fusion-top-header.avada-header-top-bg-not-opaque .fusion-header-wrapper,html:not(.avada-html-header-position-top) .avada-has-header-bg-image.fusion-header-layout-v2.fusion-top-header.avada-header-top-bg-not-opaque .fusion-is-sticky .fusion-header,html:not(.avada-html-header-position-top) .avada-has-header-bg-image.fusion-header-layout-v3.fusion-top-header.avada-header-top-bg-not-opaque .fusion-header-wrapper,html:not(.avada-html-header-position-top) .avada-has-header-bg-image.fusion-header-layout-v3.fusion-top-header.avada-header-top-bg-not-opaque .fusion-is-sticky .fusion-header {
+/* html:not(.avada-header-color-not-opaque) .avada-has-header-bg-image.fusion-header-layout-v2.fusion-top-header.avada-header-top-bg-not-opaque .fusion-header-wrapper,html:not(.avada-header-color-not-opaque) .avada-has-header-bg-image.fusion-header-layout-v2.fusion-top-header.avada-header-top-bg-not-opaque .fusion-is-sticky .fusion-header,html:not(.avada-header-color-not-opaque) .avada-has-header-bg-image.fusion-header-layout-v3.fusion-top-header.avada-header-top-bg-not-opaque .fusion-header-wrapper,html:not(.avada-header-color-not-opaque) .avada-has-header-bg-image.fusion-header-layout-v3.fusion-top-header.avada-header-top-bg-not-opaque .fusion-is-sticky .fusion-header,html:not(.avada-html-header-position-top) .avada-has-header-bg-image.fusion-header-layout-v2.fusion-top-header.avada-header-top-bg-not-opaque .fusion-header-wrapper,html:not(.avada-html-header-position-top) .avada-has-header-bg-image.fusion-header-layout-v2.fusion-top-header.avada-header-top-bg-not-opaque .fusion-is-sticky .fusion-header,html:not(.avada-html-header-position-top) .avada-has-header-bg-image.fusion-header-layout-v3.fusion-top-header.avada-header-top-bg-not-opaque .fusion-header-wrapper,html:not(.avada-html-header-position-top) .avada-has-header-bg-image.fusion-header-layout-v3.fusion-top-header.avada-header-top-bg-not-opaque .fusion-is-sticky .fusion-header {
     background-image:
-}
+} */
 
 html:not(.avada-header-color-not-opaque) .avada-has-header-bg-image.fusion-header-layout-v2.fusion-top-header.avada-header-top-bg-not-opaque.avada-header-bg-no-repeat .fusion-header-wrapper,html:not(.avada-header-color-not-opaque) .avada-has-header-bg-image.fusion-header-layout-v2.fusion-top-header.avada-header-top-bg-not-opaque.avada-header-bg-repeat-y .fusion-header-wrapper,html:not(.avada-header-color-not-opaque) .avada-has-header-bg-image.fusion-header-layout-v3.fusion-top-header.avada-header-top-bg-not-opaque.avada-header-bg-no-repeat .fusion-header-wrapper,html:not(.avada-header-color-not-opaque) .avada-has-header-bg-image.fusion-header-layout-v3.fusion-top-header.avada-header-top-bg-not-opaque.avada-header-bg-repeat-y .fusion-header-wrapper,html:not(.avada-html-header-position-top) .avada-has-header-bg-image.fusion-header-layout-v2.fusion-top-header.avada-header-top-bg-not-opaque.avada-header-bg-no-repeat .fusion-header-wrapper,html:not(.avada-html-header-position-top) .avada-has-header-bg-image.fusion-header-layout-v2.fusion-top-header.avada-header-top-bg-not-opaque.avada-header-bg-repeat-y .fusion-header-wrapper,html:not(.avada-html-header-position-top) .avada-has-header-bg-image.fusion-header-layout-v3.fusion-top-header.avada-header-top-bg-not-opaque.avada-header-bg-no-repeat .fusion-header-wrapper,html:not(.avada-html-header-position-top) .avada-has-header-bg-image.fusion-header-layout-v3.fusion-top-header.avada-header-top-bg-not-opaque.avada-header-bg-repeat-y .fusion-header-wrapper {
     background-position: center center
@@ -1514,7 +1512,6 @@ html:not(.avada-header-color-not-opaque) .avada-has-header-bg-image.fusion-heade
 }
 
 html:not(.avada-header-color-not-opaque) .avada-has-header-bg-image:not(.fusion-header-layout-v2):not(.fusion-header-layout-v3) .fusion-header,html:not(.avada-header-color-not-opaque) .avada-has-header-bg-image:not(.fusion-header-layout-v2):not(.fusion-header-layout-v3) .side-header-background-image,html:not(.avada-header-color-not-opaque) .avada-has-header-bg-image:not(.fusion-top-header) .fusion-header,html:not(.avada-header-color-not-opaque) .avada-has-header-bg-image:not(.fusion-top-header) .side-header-background-image,html:not(.avada-html-header-position-top) .avada-has-header-bg-image:not(.fusion-header-layout-v2):not(.fusion-header-layout-v3) .fusion-header,html:not(.avada-html-header-position-top) .avada-has-header-bg-image:not(.fusion-header-layout-v2):not(.fusion-header-layout-v3) .side-header-background-image,html:not(.avada-html-header-position-top) .avada-has-header-bg-image:not(.fusion-top-header) .fusion-header,html:not(.avada-html-header-position-top) .avada-has-header-bg-image:not(.fusion-top-header) .side-header-background-image {
-    background-image: ;
     background-repeat: no-repeat
 }
 
@@ -2620,10 +2617,10 @@ html:not(.avada-header-color-not-opaque) .avada-menu-highlight-style-arrow.fusio
     display: inline-block
 }
 
-.fusion-arrow-highlight .fusion-arrow-svg {
+/* .fusion-arrow-highlight .fusion-arrow-svg {
     left: calc(1px + );
     right: calc(1px - )
-}
+} */
 
 .side-header-right:not(.fusion-header-layout-v6) .fusion-arrow-highlight .fusion-arrow-svg {
     left: calc(2px - 23px)
@@ -3642,7 +3639,7 @@ article.fusion-portfolio-post.post.fusion-col-spacing {
     position: relative;
     padding: 43px 10px 40px;
     border-top: 0px solid rgba(233,234,238,0);
-    background-image: ;
+
     background-repeat: no-repeat;
     background-color: #00438b;
     background-size: initial;
@@ -13651,10 +13648,6 @@ body .fusion-alert.alert:not( .fusion-live-alert ) {
     background-color: #00438b
 }
 
-.products .product-list-view {
-    padding-left: ;
-    padding-right:
-}
 
 .products li.product {
     background-color: rgba(255,255,255,0)
@@ -15023,7 +15016,7 @@ table {
     background-color: #fff
 }
 
-@media (max-width: -1px) {
+@media (max-width: 1px) {
     .table-responsive {
         width:100%;
         margin-bottom: 15px;
