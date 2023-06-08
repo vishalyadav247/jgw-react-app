@@ -6,7 +6,7 @@ export default function Seo(props) {
 
     return (
         <Box>
-            <div style={{ backgroundColor: 'white', height: '84px', width: '100%', position: 'sticky', top: '0px' }}></div>
+            <div style={{ backgroundColor: 'black', height: '84px', width: '100%', position: 'sticky', top: '0px' }}></div>
             {pageData.id ? (
                 <Box className='seoPageContentRoot'>
                     <Typography>{pageData.title.rendered}</Typography>
